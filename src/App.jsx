@@ -5,7 +5,7 @@ function App() {
     return (
         <>
             <h1>Рестораны</h1>
-            {restaurants.map((restaurant) => <RestaurantTile key={restaurant.id} restaurant={restaurant}/>)}
+            {restaurants.map((restaurant) => <RestaurantTile key={restaurant.id} {...restaurant}/>)}
         </>
     )
 }
