@@ -1,0 +1,9 @@
+.restaurant-tile {
+    border: 1px solid #ddd;
+    margin: 20px 0 50px;
+    padding: 0 20px;
+}
+
+.restaurant-tile__name {
+    color: #368959;
+}
