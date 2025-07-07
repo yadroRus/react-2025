@@ -1,4 +1,4 @@
-.restaurant-comment {
+.restaurant-comment-item {
     border-top: 1px dashed #ccc;
     list-style: none;
     margin: 5px 0;
@@ -9,6 +9,6 @@
     }
 }
 
-.restaurant-comment__head {
+.restaurant-comment-item__head {
     display: flex;
 }
