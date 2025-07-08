@@ -1,5 +1,4 @@
 import {restaurants} from '../materials/mock.js'
-import RestaurantTile from "./components/restaurant-tile/restaurant-tile.jsx";
 import Layout from "./components/layout/Layout.jsx";
 import RestaurantTabs from "./components/restaurant-tabs/RestaurantTabs.jsx";
 
