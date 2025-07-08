@@ -26,3 +26,9 @@
     font-size: 0.8em;
     padding: 1px 3px;
 }
+
+.restaurant-menu-item__counter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
