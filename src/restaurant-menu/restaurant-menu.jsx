@@ -1,6 +1,6 @@
 import RestaurantMenuItem from "../restaurant-menu-item/restaurant-menu-item.jsx";
 
-export default function RestaurantMenu(menu) {
+export default function RestaurantMenu({menu}) {
     return menu ? (
         <>
             <h3>Меню</h3>

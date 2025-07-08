@@ -1,6 +1,6 @@
 import RestaurantCommentItem from "../restaurant-comment-item/restaurant-comment-item.jsx";
 
-export default function RestaurantComments(comments) {
+export default function RestaurantComments({comments}) {
     return comments ? (
         <>
             <h3>Отзывы / Оценки</h3>

@@ -6,8 +6,8 @@ function RestaurantTile({name, menu, reviews}) {
     return (
         <div className='restaurant-tile'>
             <h2 className='restaurant-tile__name'>{name}</h2>
-            {RestaurantMenu(menu)}
-            {RestaurantComments(reviews)}
+            <RestaurantMenu menu={menu}/>
+            <RestaurantComments comments={reviews}/>
         </div>
     )
 }
