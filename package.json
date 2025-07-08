@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint src",
     "preview": "vite preview",
-    "prettier": "prettier src/components"
+    "prettier": "prettier src/components --write"
   },
   "dependencies": {
     "react": "^19.1.0",
