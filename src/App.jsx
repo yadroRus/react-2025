@@ -1,12 +1,13 @@
 import {restaurants} from '../materials/mock.js'
 import RestaurantTile from "./components/restaurant-tile/restaurant-tile.jsx";
+import Layout from "./components/layout/Layout.jsx";
+import RestaurantTabs from "./components/restaurant-tabs/RestaurantTabs.jsx";
 
 function App() {
     return (
-        <>
-            <h1>Рестораны</h1>
-            {restaurants.map((restaurant) => <RestaurantTile key={restaurant.id} {...restaurant}/>)}
-        </>
+        <Layout header={<h1>Рестораны</h1>}>
+            <RestaurantTabs restaurants={restaurants}></RestaurantTabs>
+        </Layout>
     )
 }
 
