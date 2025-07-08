@@ -1,5 +1,5 @@
 import {restaurants} from '../materials/mock.js'
-import RestaurantTile from "./restaurant-tile/restaurant-tile.jsx";
+import RestaurantTile from "./components/restaurant-tile/restaurant-tile.jsx";
 
 function App() {
     return (
