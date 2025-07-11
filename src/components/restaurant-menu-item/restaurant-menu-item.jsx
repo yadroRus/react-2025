@@ -4,13 +4,11 @@ import { useRef, useState } from "react";
 
 function RestaurantMenuItem({ name, price, ingredients }) {
   const [totalPrice, setTotalPrice] = useState(0);
-  const counterRef = useRef(null);
+  // const counterRef = useRef(null);
 
-  const onCounterChange = () => {
-    setTimeout(() => {
-      setTotalPrice(counterRef.current.getCount() * price);
-      // setTotalPrice(counterRef.current.textContent * price || price);
-    });
+  const onCounterChange = (count) => {
+    setTotalPrice(count * price);
+    // setTotalPrice(counterRef.current.textContent * price || price);
   };
 
   return (
@@ -24,7 +22,7 @@ function RestaurantMenuItem({ name, price, ingredients }) {
           <ButtonCounter
             min="0"
             max="5"
-            ref={counterRef}
+            // ref={counterRef}
             onCounterChange={onCounterChange}
           />
         </div>

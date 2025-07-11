@@ -1,6 +1,6 @@
 import { useCounter } from "./hooks.js";
 import "./button-counter.css";
-import { useImperativeHandle } from "react";
+import { useImperativeHandle, useEffect } from "react";
 
 function ButtonCounter({ max, min, ref, onCounterChange }) {
   const { count, increment, decrement } = useCounter(0);
@@ -8,13 +8,17 @@ function ButtonCounter({ max, min, ref, onCounterChange }) {
   const incrementDisabled = count >= max;
   const decrementDisabled = count <= min;
 
+  useEffect(() => {
+    onCounterChange(count);
+  }, [count]);
+
   // works like an outer api of a component
   useImperativeHandle(
     ref,
     () => ({
-      getCount: () => count,
+      getCount: () => count
     }),
-    [count],
+    [count]
   );
 
   return (
@@ -22,10 +26,7 @@ function ButtonCounter({ max, min, ref, onCounterChange }) {
       <button
         className="btn-counter__button"
         disabled={decrementDisabled}
-        onClick={() => {
-          decrement(min);
-          onCounterChange();
-        }}
+        onClick={() => decrement(min)}
       >
         -
       </button>
@@ -33,10 +34,7 @@ function ButtonCounter({ max, min, ref, onCounterChange }) {
       <button
         className="btn-counter__button"
         disabled={incrementDisabled}
-        onClick={() => {
-          increment(max);
-          onCounterChange();
-        }}
+        onClick={() => increment(max)}
       >
         +
       </button>
