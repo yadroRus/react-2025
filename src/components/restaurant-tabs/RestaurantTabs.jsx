@@ -6,7 +6,7 @@ import "./restaurant-tabs.css";
 function RestaurantTabs({ restaurants }) {
   const [activeRestaurant, setActiveRestaurant] = useState(restaurants[0]);
 
-  const handleTabClick = (e, id) => {
+  const handleTabClick = (id) => {
     if (activeRestaurant.id === id) return;
     const nextRestaurant = restaurants.find(
       (restaurant) => restaurant.id === id,
@@ -22,7 +22,7 @@ function RestaurantTabs({ restaurants }) {
             key={restaurant.id}
             name={restaurant.name}
             active={String(activeRestaurant.id === restaurant.id)}
-            onClick={(e) => handleTabClick(e, restaurant.id)}
+            onClick={() => handleTabClick(restaurant.id)}
           />
         ))}
       </div>
