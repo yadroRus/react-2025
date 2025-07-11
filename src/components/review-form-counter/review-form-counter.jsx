@@ -1,9 +1,19 @@
 import { useCounter } from "../dish-counter/hooks.js";
-import { useImperativeHandle } from "react";
+import { useEffect, useImperativeHandle } from "react";
 import { Counter } from "../counter/counter.jsx";
 
-export const ReviewFormCounter = ({ min = 0, max = 5, ref }) => {
+export const ReviewFormCounter = ({
+  min = 0,
+  max = 5,
+  ref,
+  id,
+  onCounterChange,
+}) => {
   const { count, setCount, increment, decrement } = useCounter({ min, max });
+
+  useEffect(() => {
+    onCounterChange && onCounterChange(count);
+  }, [count]);
 
   // works like an outer api of a component
   useImperativeHandle(
@@ -16,6 +26,7 @@ export const ReviewFormCounter = ({ min = 0, max = 5, ref }) => {
 
   return (
     <Counter
+      id={id}
       onPrevClick={decrement}
       onNextClick={increment}
       prevDisabled={count <= min}

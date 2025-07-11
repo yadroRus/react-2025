@@ -6,9 +6,10 @@ export const Counter = ({
   onPrevClick,
   onNextClick,
   count,
+  id,
 }) => {
   return (
-    <div className="btn-counter">
+    <div className="btn-counter" id={id}>
       <button
         className="btn-counter__button"
         disabled={prevDisabled}

@@ -1,10 +1,11 @@
 import { useReducer, useRef } from "react";
 import { ReviewFormCounter } from "../review-form-counter/review-form-counter.jsx";
+import "./review-form.css";
 
 const DEFAULT_STATE = {
   name: "",
   comment: "",
-  rating: 0
+  rating: 0,
 };
 
 const SET_NAME_ACTION = "setName";
@@ -32,6 +33,16 @@ function reducer(state, { type, payload }) {
   }
 }
 
+const isFormClear = (form) => {
+  let isClear = true;
+  Object.entries(form).forEach(([key, value]) => {
+    if (value) {
+      isClear = false;
+    }
+  });
+  return isClear;
+};
+
 export const ReviewForm = () => {
   const refCounter = useRef(null);
 
@@ -42,42 +53,51 @@ export const ReviewForm = () => {
   return (
     <>
       <h3>Добавить отзыв</h3>
-      <form onClick={(e) => e.preventDefault()}>
-        <label htmlFor="name">Имя: </label>
-        <br />
+      <form className="review-form" onClick={(e) => e.preventDefault()}>
+        <label className="form-label" htmlFor="form-name">
+          Имя:{" "}
+        </label>
         <input
-          id="name"
+          id="form-name"
           type="text"
           value={name}
           onChange={(e) =>
             dispatch({
               type: SET_NAME_ACTION,
-              payload: e.target.value
+              payload: e.target.value,
             })
           }
         />
-        <p>Коментарий: </p>
+        <label className="form-label" htmlFor="form-commet">
+          Коментарий:{" "}
+        </label>
         <textarea
+          id="form-commet"
+          className="form-comment"
           value={comment}
           onChange={(e) =>
             dispatch({
               type: SET_COMMENT_ACTION,
-              payload: e.target.value
-            })
-          }
-        ></textarea>
-        <p>Оценка:</p>
-        <ReviewFormCounter
-          ref={refCounter}
-          onCounterChange={(value) =>
-            dispatch({
-              type: SET_RATING_ACTION,
-              payload: value
+              payload: e.target.value,
             })
           }
         />
+        <label className="form-label" htmlFor="form-rating">
+          Оценка:
+        </label>
+        <ReviewFormCounter
+          id="form-rating"
+          ref={refCounter}
+          onCounterChange={(value) => {
+            dispatch({
+              type: SET_RATING_ACTION,
+              payload: value,
+            });
+          }}
+        />
         <button
-          style={{ backgroundColor: "white" }}
+          className="form-button"
+          disabled={isFormClear(form)}
           onClick={() => {
             dispatch({ type: CLEAR_FORM_ACTION });
             refCounter.current.setCount(0);
