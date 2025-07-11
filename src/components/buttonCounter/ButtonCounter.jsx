@@ -16,9 +16,9 @@ function ButtonCounter({ max, min, ref, onCounterChange }) {
   useImperativeHandle(
     ref,
     () => ({
-      getCount: () => count
+      getCount: () => count,
     }),
-    [count]
+    [count],
   );
 
   return (
