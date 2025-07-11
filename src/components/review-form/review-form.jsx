@@ -1,0 +1,91 @@
+import { useReducer, useRef } from "react";
+import { ReviewFormCounter } from "../review-form-counter/review-form-counter.jsx";
+
+const DEFAULT_STATE = {
+  name: "",
+  comment: "",
+  rating: 0
+};
+
+const SET_NAME_ACTION = "setName";
+const SET_COMMENT_ACTION = "setComment";
+const SET_RATING_ACTION = "setRating";
+const CLEAR_FORM_ACTION = "clearForm";
+
+function reducer(state, { type, payload }) {
+  switch (type) {
+    case SET_NAME_ACTION: {
+      return { ...state, name: payload };
+    }
+    case SET_COMMENT_ACTION: {
+      return { ...state, comment: payload };
+    }
+    case SET_RATING_ACTION: {
+      return { ...state, rating: payload };
+    }
+    case CLEAR_FORM_ACTION: {
+      return DEFAULT_STATE;
+    }
+    default: {
+      return state;
+    }
+  }
+}
+
+export const ReviewForm = () => {
+  const refCounter = useRef(null);
+
+  const [form, dispatch] = useReducer(reducer, DEFAULT_STATE);
+
+  const { name, comment, rating } = form;
+
+  return (
+    <>
+      <h3>Добавить отзыв</h3>
+      <form onClick={(e) => e.preventDefault()}>
+        <label htmlFor="name">Имя: </label>
+        <br />
+        <input
+          id="name"
+          type="text"
+          value={name}
+          onChange={(e) =>
+            dispatch({
+              type: SET_NAME_ACTION,
+              payload: e.target.value
+            })
+          }
+        />
+        <p>Коментарий: </p>
+        <textarea
+          value={comment}
+          onChange={(e) =>
+            dispatch({
+              type: SET_COMMENT_ACTION,
+              payload: e.target.value
+            })
+          }
+        ></textarea>
+        <p>Оценка:</p>
+        <ReviewFormCounter
+          ref={refCounter}
+          onCounterChange={(value) =>
+            dispatch({
+              type: SET_RATING_ACTION,
+              payload: value
+            })
+          }
+        />
+        <button
+          style={{ backgroundColor: "white" }}
+          onClick={() => {
+            dispatch({ type: CLEAR_FORM_ACTION });
+            refCounter.current.setCount(0);
+          }}
+        >
+          Очистить
+        </button>
+      </form>
+    </>
+  );
+};
