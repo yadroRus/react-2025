@@ -35,7 +35,7 @@ function reducer(state, { type, payload }) {
 
 const isFormClear = (form) => {
   let isClear = true;
-  Object.entries(form).forEach(([key, value]) => {
+  Object.entries(form).forEach(([, value]) => {
     if (value) {
       isClear = false;
     }
@@ -48,7 +48,7 @@ export const ReviewForm = () => {
 
   const [form, dispatch] = useReducer(reducer, DEFAULT_STATE);
 
-  const { name, comment, rating } = form;
+  const { name, comment } = form;
 
   return (
     <>

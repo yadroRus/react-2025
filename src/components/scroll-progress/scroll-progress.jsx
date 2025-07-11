@@ -3,15 +3,17 @@ import { useEffect, useRef } from "react";
 
 function getVerticalScrollPercentage(node) {
   const parent = node.parentNode;
-  return (node.scrollTop || parent.scrollTop) / (parent.scrollHeight - parent.clientHeight) * 100;
+  return (
+    ((node.scrollTop || parent.scrollTop) /
+      (parent.scrollHeight - parent.clientHeight)) *
+    100
+  );
 }
 
 export const ScrollProgress = () => {
-
   const refProgressBar = useRef(null);
 
   useEffect(() => {
-
     const onScroll = () => {
       refProgressBar.current.style.transform = `translateX(${getVerticalScrollPercentage(document.body) - 100}%)`;
     };
@@ -21,7 +23,6 @@ export const ScrollProgress = () => {
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
-
   }, []);
 
   return (
