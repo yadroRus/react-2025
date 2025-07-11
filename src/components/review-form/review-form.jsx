@@ -55,7 +55,7 @@ export const ReviewForm = () => {
       <h3>Добавить отзыв</h3>
       <form className="review-form" onClick={(e) => e.preventDefault()}>
         <label className="form-label" htmlFor="form-name">
-          Имя:{" "}
+          Имя:
         </label>
         <input
           id="form-name"
@@ -69,7 +69,7 @@ export const ReviewForm = () => {
           }
         />
         <label className="form-label" htmlFor="form-commet">
-          Коментарий:{" "}
+          Коментарий:
         </label>
         <textarea
           id="form-commet"
