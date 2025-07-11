@@ -1,15 +1,15 @@
 import { useState } from "react";
 
-export const useCounter = (initialState) => {
-  const [count, setCount] = useState(initialState);
+export const useCounter = ({ min, max }) => {
+  const [count, setCount] = useState(min);
 
-  const increment = (max) => {
+  const increment = () => {
     if (max === undefined || count < max) {
       setCount(count + 1);
     }
   };
 
-  const decrement = (min) => {
+  const decrement = () => {
     if (min === undefined || count > min) {
       setCount(count - 1);
     }

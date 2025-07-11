@@ -2,8 +2,11 @@ import { useCounter } from "./hooks.js";
 import "./button-counter.css";
 import { useImperativeHandle, useEffect } from "react";
 
-function ButtonCounter({ max, min, ref, onCounterChange }) {
-  const { count, increment, decrement } = useCounter(0);
+function ButtonCounter({ min = 0, max = 5, ref, onCounterChange }) {
+  const { count, increment, decrement } = useCounter({
+    min: Number(min),
+    max: Number(max),
+  });
 
   const incrementDisabled = count >= max;
   const decrementDisabled = count <= min;

@@ -4,14 +4,17 @@ import { Tab } from "../tab/Tab.jsx";
 import "./restaurant-tabs.css";
 
 function RestaurantTabs({ restaurants }) {
-  const [activeRestaurant, setActiveRestaurant] = useState(restaurants[0]);
+  const [activeRestaurantId, setActiveRestaurantId] = useState(
+    restaurants[0].id,
+  );
+
+  const activeRestaurant = restaurants.find(
+    (restaurant) => restaurant.id === activeRestaurantId,
+  );
 
   const handleTabClick = (id) => {
-    if (activeRestaurant.id === id) return;
-    const nextRestaurant = restaurants.find(
-      (restaurant) => restaurant.id === id,
-    );
-    nextRestaurant && setActiveRestaurant(nextRestaurant);
+    if (activeRestaurantId === id) return;
+    setActiveRestaurantId(id);
   };
 
   return (
@@ -21,13 +24,17 @@ function RestaurantTabs({ restaurants }) {
           <Tab
             key={restaurant.id}
             name={restaurant.name}
-            active={String(activeRestaurant.id === restaurant.id)}
+            active={String(activeRestaurantId === restaurant.id)}
             onClick={() => handleTabClick(restaurant.id)}
           />
         ))}
       </div>
       <div className="tabs-body">
-        <RestaurantTile {...activeRestaurant} />
+        <RestaurantTile
+          name={activeRestaurant.name}
+          menu={activeRestaurant.menu}
+          reviews={activeRestaurant.reviews}
+        />
       </div>
     </>
   );
