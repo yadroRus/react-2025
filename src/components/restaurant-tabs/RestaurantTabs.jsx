@@ -1,11 +1,9 @@
 import RestaurantTile from "../restaurant-tile/restaurant-tile.jsx";
-import React from "react";
+import { useState } from "react";
 import "./restaurant-tabs.css";
 
 function RestaurantTabs({ restaurants }) {
-  const [activeRestaurant, setActiveRestaurant] = React.useState(
-    restaurants[0],
-  );
+  const [activeRestaurant, setActiveRestaurant] = useState(restaurants[0]);
 
   const handleTabClick = (e, id) => {
     if (activeRestaurant.id === id) return;

@@ -1,7 +1,11 @@
 import RestaurantCommentItem from "../restaurant-comment-item/restaurant-comment-item.jsx";
 
 export default function RestaurantComments({ comments }) {
-  return comments ? (
+  if (!comments) {
+    return null;
+  }
+
+  return (
     <>
       <h3>Отзывы / Оценки</h3>
       <ul>
@@ -11,9 +15,9 @@ export default function RestaurantComments({ comments }) {
             author={user}
             comment={text}
             rating={rating}
-          ></RestaurantCommentItem>
+          />
         ))}
       </ul>
     </>
-  ) : null;
+  );
 }

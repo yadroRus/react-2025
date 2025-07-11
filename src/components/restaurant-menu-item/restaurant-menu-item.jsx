@@ -1,9 +1,9 @@
 import "./restaurant-menu-item.css";
 import ButtonCounter from "../buttonCounter/ButtonCounter.jsx";
-import React, { useRef } from "react";
+import { useRef, useState } from "react";
 
 function RestaurantMenuItem({ name, price, ingredients }) {
-  const [totalPrice, setTotalPrice] = React.useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
   const counterRef = useRef(null);
 
   const updatePrice = () => {

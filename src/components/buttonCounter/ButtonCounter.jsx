@@ -1,10 +1,12 @@
-import { useCounter } from "./helpers.js";
+import { useCounter } from "./hooks.js";
 import "./button-counter.css";
 import { useImperativeHandle } from "react";
 
 function ButtonCounter({ max, min, ref }) {
-  const [count, increment, decrement, incrementDisabled, decrementDisabled] =
-    useCounter(0);
+  const { count, increment, decrement } = useCounter(0);
+
+  const incrementDisabled = count >= max;
+  const decrementDisabled = count <= min;
 
   // works like an outer api of a component
   useImperativeHandle(

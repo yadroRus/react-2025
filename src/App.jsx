@@ -5,7 +5,7 @@ import RestaurantTabs from "./components/restaurant-tabs/RestaurantTabs.jsx";
 function App() {
     return (
         <Layout header={<h1>Рестораны</h1>}>
-            <RestaurantTabs restaurants={restaurants}></RestaurantTabs>
+            <RestaurantTabs restaurants={restaurants}/>
         </Layout>
     )
 }
