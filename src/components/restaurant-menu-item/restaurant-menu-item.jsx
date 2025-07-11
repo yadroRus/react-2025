@@ -6,9 +6,8 @@ function RestaurantMenuItem({ name, price, ingredients }) {
   const [totalPrice, setTotalPrice] = useState(0);
   const counterRef = useRef(null);
 
-  const updatePrice = () => {
+  const onCounterChange = () => {
     setTimeout(() => {
-      // todo: Андрей, какой вариат предпочтительней через useImperativeHandle или чтение знаяения из DOM?
       setTotalPrice(counterRef.current.getCount() * price);
       // setTotalPrice(counterRef.current.textContent * price || price);
     });
@@ -20,9 +19,14 @@ function RestaurantMenuItem({ name, price, ingredients }) {
         <span>
           {name} <span style={{ fontSize: "0.8em" }}>({price} руб.)</span>
         </span>
-        <div className="restaurant-menu-item__counter" onClick={updatePrice}>
+        <div className="restaurant-menu-item__counter">
           <span>{totalPrice} руб.</span>
-          <ButtonCounter min="0" max="5" ref={counterRef} />
+          <ButtonCounter
+            min="0"
+            max="5"
+            ref={counterRef}
+            onCounterChange={onCounterChange}
+          />
         </div>
       </div>
       <div className="restaurant-menu-item__labels">
