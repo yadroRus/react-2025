@@ -1,27 +1,27 @@
 import "./counter.css";
 
 export const Counter = ({
-  prevDisabled,
-  nextDisabled,
-  onPrevClick,
-  onNextClick,
-  count,
+  decrement,
+  increment,
+  decrementDisabled,
+  incrementDisabled,
+  value,
   id,
 }) => {
   return (
     <div className="btn-counter" id={id}>
       <button
         className="btn-counter__button"
-        disabled={prevDisabled}
-        onClick={onPrevClick}
+        disabled={decrementDisabled}
+        onClick={decrement}
       >
         -
       </button>
-      <span>{count}</span>
+      <span>{value}</span>
       <button
         className="btn-counter__button"
-        disabled={nextDisabled}
-        onClick={onNextClick}
+        disabled={incrementDisabled}
+        onClick={increment}
       >
         +
       </button>

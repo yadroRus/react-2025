@@ -12,11 +12,11 @@ export const DishCounter = ({ min = 0, max = 5, onCounterChange }) => {
 
   return (
     <Counter
-      onPrevClick={decrement}
-      onNextClick={increment}
-      prevDisabled={count <= min}
-      nextDisabled={count >= max}
-      count={count}
+      decrement={decrement}
+      increment={increment}
+      decrementDisabled={count <= min}
+      incrementDisabled={count >= max}
+      value={count}
     />
   );
 };

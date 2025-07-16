@@ -1,59 +1,21 @@
-import { useReducer, useRef } from "react";
-import { ReviewFormCounter } from "../review-form-counter/review-form-counter.jsx";
+import { Counter } from "../counter/counter.jsx";
+import { useForm } from "./use-form.js";
 import "./review-form.css";
 
-const DEFAULT_STATE = {
-  name: "",
-  comment: "",
-  rating: 0,
-};
-
-const SET_NAME_ACTION = "setName";
-const SET_COMMENT_ACTION = "setComment";
-const SET_RATING_ACTION = "setRating";
-const CLEAR_FORM_ACTION = "clearForm";
-
-function reducer(state, { type, payload }) {
-  switch (type) {
-    case SET_NAME_ACTION: {
-      return { ...state, name: payload };
-    }
-    case SET_COMMENT_ACTION: {
-      return { ...state, comment: payload };
-    }
-    case SET_RATING_ACTION: {
-      return { ...state, rating: payload };
-    }
-    case CLEAR_FORM_ACTION: {
-      return DEFAULT_STATE;
-    }
-    default: {
-      return state;
-    }
-  }
-}
-
 const isFormClear = (form) => {
-  let isClear = true;
-  Object.entries(form).forEach(([, value]) => {
-    if (value) {
-      isClear = false;
-    }
-  });
-  return isClear;
+  return !Object.values(form).find((value) => !!value);
 };
 
 export const ReviewForm = () => {
-  const refCounter = useRef(null);
+  const { form, setName, setComment, incrementRating, decrementRating, clear } =
+    useForm();
 
-  const [form, dispatch] = useReducer(reducer, DEFAULT_STATE);
-
-  const { name, comment } = form;
+  const { name, comment, rating } = form;
 
   return (
     <>
       <h3>Добавить отзыв</h3>
-      <form className="review-form" onClick={(e) => e.preventDefault()}>
+      <form className="review-form" onSubmit={(e) => e.preventDefault()}>
         <label className="form-label" htmlFor="form-name">
           Имя:
         </label>
@@ -61,12 +23,7 @@ export const ReviewForm = () => {
           id="form-name"
           type="text"
           value={name}
-          onChange={(e) =>
-            dispatch({
-              type: SET_NAME_ACTION,
-              payload: e.target.value,
-            })
-          }
+          onChange={(e) => setName(e.target.value)}
         />
         <label className="form-label" htmlFor="form-commet">
           Коментарий:
@@ -75,33 +32,25 @@ export const ReviewForm = () => {
           id="form-commet"
           className="form-comment"
           value={comment}
-          onChange={(e) =>
-            dispatch({
-              type: SET_COMMENT_ACTION,
-              payload: e.target.value,
-            })
-          }
+          onChange={(e) => setComment(e.target.value)}
         />
         <label className="form-label" htmlFor="form-rating">
           Оценка:
         </label>
-        <ReviewFormCounter
+
+        <Counter
           id="form-rating"
-          ref={refCounter}
-          onCounterChange={(value) => {
-            dispatch({
-              type: SET_RATING_ACTION,
-              payload: value,
-            });
-          }}
+          value={rating}
+          increment={incrementRating}
+          decrement={decrementRating}
+          decrementDisabled={rating <= 0}
+          incrementDisabled={rating >= 5}
         />
+
         <button
           className="form-button"
           disabled={isFormClear(form)}
-          onClick={() => {
-            dispatch({ type: CLEAR_FORM_ACTION });
-            refCounter.current.setCount(0);
-          }}
+          onClick={() => clear()}
         >
           Очистить
         </button>

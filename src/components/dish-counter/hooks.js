@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-export const useCounter = ({ min, max }) => {
-  const [count, setCount] = useState(Number(min));
+export const useCounter = ({ value = 0, min, max }) => {
+  const [count, setCount] = useState(Number(value));
 
   const increment = () => {
     if (max === undefined || count < Number(max)) {
