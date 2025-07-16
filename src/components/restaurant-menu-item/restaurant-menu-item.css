@@ -1,0 +1,34 @@
+.restaurant-menu-item {
+  border-bottom: 1px dashed #ccc;
+  list-style: none;
+  margin: 10px 0;
+  padding: 10px;
+
+  &:first-child {
+    border-top: 1px dashed #ccc;
+  }
+}
+
+.restaurant-menu-item__text {
+  display: flex;
+  justify-content: space-between;
+}
+
+.restaurant-menu-item__labels {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.restaurant-menu-item__label {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 0.8em;
+  padding: 1px 3px;
+}
+
+.restaurant-menu-item__counter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
