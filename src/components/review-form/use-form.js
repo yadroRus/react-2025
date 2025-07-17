@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useCallback, useReducer } from "react";
 
 const DEFAULT_STATE = {
   name: "",
@@ -42,25 +42,25 @@ function reducer(state, { type, payload }) {
 export const useForm = () => {
   const [form, dispatch] = useReducer(reducer, DEFAULT_STATE);
 
-  const setName = (text) => {
+  const setName = useCallback((text) => {
     dispatch({ type: SET_NAME_ACTION, payload: text });
-  };
+  }, []);
 
-  const setComment = (text) => {
+  const setComment = useCallback((text) => {
     dispatch({ type: SET_COMMENT_ACTION, payload: text });
-  };
+  }, []);
 
-  const incrementRating = () => {
+  const incrementRating = useCallback(() => {
     dispatch({ type: INCREMENT_RATING_ACTION });
-  };
+  }, []);
 
-  const decrementRating = () => {
+  const decrementRating = useCallback(() => {
     dispatch({ type: DECREMENT_RATING_ACTION });
-  };
+  }, []);
 
-  const clear = () => {
+  const clear = useCallback(() => {
     dispatch({ type: CLEAR_FORM_ACTION });
-  };
+  }, []);
 
   return {
     form,

@@ -1,12 +1,12 @@
-import "./scroll-progress.css";
+import styles from "./scroll-progress.module.css";
 import { useProgress } from "./use-progress.js";
 
 export const ScrollProgress = () => {
   const progress = useProgress();
   return (
-    <div className="scroll-progress">
+    <div className={styles.container}>
       <div
-        className="scroll-progress-bar"
+        className={styles.bar}
         style={{
           transform: `translateX(${progress}%)`,
         }}

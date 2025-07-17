@@ -11,7 +11,7 @@ function getVerticalScrollPercentage(node = document.body) {
 }
 
 export const useProgress = () => {
-  const [progress, setProgress] = useState(getVerticalScrollPercentage());
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const onScroll = () => {
