@@ -22,7 +22,7 @@ function RestaurantMenuItem({ name, price, ingredients }) {
         </div>
       </div>
       <div className={styles.counterWrapper}>
-        <span>{totalPrice} руб.</span>
+        <span className={styles.totalPrice}>{totalPrice} руб.</span>
         <DishCounter onCounterChange={onCounterChange} />
       </div>
     </li>

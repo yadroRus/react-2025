@@ -25,6 +25,11 @@
   color: #519376;
 }
 
+.totalPrice {
+  color: #6e5555;
+  font-size: 0.9em;
+}
+
 .labels {
   display: flex;
   gap: 10px;
