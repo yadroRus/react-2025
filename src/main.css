@@ -5,7 +5,9 @@ main, header {
 
 footer {
     background: gray;
-    height: 100px;
+    height: 60px;
+    text-align: center;
+    padding: 20px;
 }
 
 h1 {

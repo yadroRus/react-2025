@@ -2,12 +2,13 @@ import { Counter } from "../counter/counter.jsx";
 import { useForm } from "./use-form.js";
 import styles from "./review-form.module.css";
 import classNames from "classnames";
+import { memo } from "react";
 
 const isFormClear = (form) => {
   return !Object.values(form).find((value) => !!value);
 };
 
-export const ReviewForm = () => {
+export const ReviewForm = memo(() => {
   const { form, setName, setComment, incrementRating, decrementRating, clear } =
     useForm();
 
@@ -60,4 +61,4 @@ export const ReviewForm = () => {
       </form>
     </>
   );
-};
+});

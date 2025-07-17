@@ -1,7 +1,8 @@
 import styles from "./tabs.module.css";
 import classNames from "classnames";
+import { memo } from "react";
 
-export const Tab = ({ name, active, onClick }) => {
+export const Tab = memo(({ name, active, onClick }) => {
   return (
     <div
       className={classNames(styles.tab, { [styles.active]: active })}
@@ -10,4 +11,4 @@ export const Tab = ({ name, active, onClick }) => {
       {name}
     </div>
   );
-};
+});
