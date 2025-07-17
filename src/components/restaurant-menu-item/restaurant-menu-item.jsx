@@ -1,15 +1,11 @@
 import "./restaurant-menu-item.css";
-import ButtonCounter from "../buttonCounter/ButtonCounter.jsx";
-import { useRef, useState } from "react";
+import { DishCounter } from "../dish-counter/dish-counter.jsx";
+import { useState } from "react";
 
 function RestaurantMenuItem({ name, price, ingredients }) {
   const [totalPrice, setTotalPrice] = useState(0);
-  // const counterRef = useRef(null);
 
-  const onCounterChange = (count) => {
-    setTotalPrice(count * price);
-    // setTotalPrice(counterRef.current.textContent * price || price);
-  };
+  const onCounterChange = (count) => setTotalPrice(count * price);
 
   return (
     <li className="restaurant-menu-item">
@@ -19,12 +15,7 @@ function RestaurantMenuItem({ name, price, ingredients }) {
         </span>
         <div className="restaurant-menu-item__counter">
           <span>{totalPrice} руб.</span>
-          <ButtonCounter
-            min="0"
-            max="5"
-            // ref={counterRef}
-            onCounterChange={onCounterChange}
-          />
+          <DishCounter onCounterChange={onCounterChange} />
         </div>
       </div>
       <div className="restaurant-menu-item__labels">
