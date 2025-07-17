@@ -1,9 +1,0 @@
-.tabs-trigger {
-  border: 1px solid #ccc;
-  padding: 0 5px;
-  cursor: pointer;
-}
-
-.tabs-trigger[active="true"] {
-  background: #edddef;
-}

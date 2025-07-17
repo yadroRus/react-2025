@@ -1,12 +1,12 @@
-import "./restaurant-comment-item.css";
+import styles from "./restaurant-comment-item.module.css";
 
 function RestaurantCommentItem({ author, comment, rating }) {
   return (
-    <li className="restaurant-comment-item">
-      <span className="restaurant-comment-item__head">
-        {author} - {rating}
-      </span>
-      {comment}
+    <li className={styles.item}>
+      <div>
+        {author} - <span className={styles.rating}>{rating}</span>
+      </div>
+      <div className={styles.comment}>{comment}</div>
     </li>
   );
 }

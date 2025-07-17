@@ -1,4 +1,4 @@
-.scroll-progress {
+.container {
   position: fixed;
   top: 0;
   left: 0;
@@ -7,7 +7,7 @@
   z-index: 1;
 }
 
-.scroll-progress-bar {
+.bar {
   background: #179142;
   height: 100%;
   transform: translateX(-100%);

@@ -1,0 +1,20 @@
+.item {
+  border-bottom: 1px dashed #ccc;
+  list-style: none;
+  padding: 10px;
+
+  &:last-child {
+    margin-bottom: 20px;
+  }
+}
+
+.rating {
+  font-size: 0.9em;
+  color: green;
+}
+
+.comment {
+  color: #b15f5f;
+  font-size: 0.9em;
+  margin-top: 5px;
+}

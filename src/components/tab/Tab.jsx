@@ -1,8 +1,12 @@
-import "./tabs.css";
+import styles from "./tabs.module.css";
+import classNames from "classnames";
 
 export const Tab = ({ name, active, onClick }) => {
   return (
-    <div className="tabs-trigger" active={active} onClick={onClick}>
+    <div
+      className={classNames(styles.tab, { [styles.active]: active })}
+      onClick={onClick}
+    >
       {name}
     </div>
   );

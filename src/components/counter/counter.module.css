@@ -1,16 +1,18 @@
-.btn-counter {
+.counter {
   display: flex;
   gap: 8px;
   align-items: center;
 }
 
-.btn-counter__button {
+.button {
   background-color: white;
   border: 1px solid #ccc;
+  border-radius: 3px;
   padding: 5px 10px;
+  cursor: pointer;
 }
 
-.btn-counter__button[disabled] {
-  opacity: 0.6;
+.buttonDisabled {
+  opacity: 0.4;
   cursor: default;
 }

@@ -1,6 +1,7 @@
 import { Counter } from "../counter/counter.jsx";
 import { useForm } from "./use-form.js";
-import "./review-form.css";
+import styles from "./review-form.module.css";
+import classNames from "classnames";
 
 const isFormClear = (form) => {
   return !Object.values(form).find((value) => !!value);
@@ -15,26 +16,27 @@ export const ReviewForm = () => {
   return (
     <>
       <h3>Добавить отзыв</h3>
-      <form className="review-form" onSubmit={(e) => e.preventDefault()}>
-        <label className="form-label" htmlFor="form-name">
+      <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
+        <label className={styles.label} htmlFor="form-name">
           Имя:
         </label>
         <input
           id="form-name"
           type="text"
+          className={styles.input}
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <label className="form-label" htmlFor="form-commet">
+        <label className={styles.label} htmlFor="form-commet">
           Коментарий:
         </label>
         <textarea
           id="form-commet"
-          className="form-comment"
+          className={styles.comment}
           value={comment}
           onChange={(e) => setComment(e.target.value)}
         />
-        <label className="form-label" htmlFor="form-rating">
+        <label className={styles.label} htmlFor="form-rating">
           Оценка:
         </label>
 
@@ -48,11 +50,12 @@ export const ReviewForm = () => {
         />
 
         <button
-          className="form-button"
-          disabled={isFormClear(form)}
+          className={classNames(styles.button, {
+            [styles.buttonDisabled]: isFormClear(form),
+          })}
           onClick={() => clear()}
         >
-          Очистить
+          очистить
         </button>
       </form>
     </>
