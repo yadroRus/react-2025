@@ -1,4 +1,5 @@
-import "./counter.css";
+import classNames from "classnames";
+import styles from "./counter.module.css";
 
 export const Counter = ({
   decrement,
@@ -9,18 +10,20 @@ export const Counter = ({
   id,
 }) => {
   return (
-    <div className="btn-counter" id={id}>
+    <div className={classNames(styles.counter)} id={id}>
       <button
-        className="btn-counter__button"
-        disabled={decrementDisabled}
+        className={classNames(styles.button, {
+          [styles.buttonDisabled]: decrementDisabled,
+        })}
         onClick={decrement}
       >
         -
       </button>
       <span>{value}</span>
       <button
-        className="btn-counter__button"
-        disabled={incrementDisabled}
+        className={classNames(styles.button, {
+          [styles.buttonDisabled]: incrementDisabled,
+        })}
         onClick={increment}
       >
         +

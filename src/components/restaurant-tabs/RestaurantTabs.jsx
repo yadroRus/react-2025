@@ -1,15 +1,15 @@
 import RestaurantTile from "../restaurant-tile/restaurant-tile.jsx";
 import { useState } from "react";
 import { Tab } from "../tab/Tab.jsx";
-import "./restaurant-tabs.css";
+import styles from "./restaurant-tabs.module.css";
 
 function RestaurantTabs({ restaurants }) {
   const [activeRestaurantId, setActiveRestaurantId] = useState(
-    restaurants[0].id,
+    restaurants[0].id
   );
 
   const activeRestaurant = restaurants.find(
-    (restaurant) => restaurant.id === activeRestaurantId,
+    (restaurant) => restaurant.id === activeRestaurantId
   );
 
   const handleTabClick = (id) => {
@@ -19,23 +19,21 @@ function RestaurantTabs({ restaurants }) {
 
   return (
     <>
-      <div className="tabs-triggers">
+      <div className={styles["tabs-triggers"]}>
         {restaurants.map((restaurant) => (
           <Tab
             key={restaurant.id}
             name={restaurant.name}
-            active={String(activeRestaurantId === restaurant.id)}
+            active={Boolean(activeRestaurantId === restaurant.id)}
             onClick={() => handleTabClick(restaurant.id)}
           />
         ))}
       </div>
-      <div className="tabs-body">
-        <RestaurantTile
-          name={activeRestaurant.name}
-          menu={activeRestaurant.menu}
-          reviews={activeRestaurant.reviews}
-        />
-      </div>
+      <RestaurantTile
+        name={activeRestaurant.name}
+        menu={activeRestaurant.menu}
+        reviews={activeRestaurant.reviews}
+      />
     </>
   );
 }
