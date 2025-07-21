@@ -8,10 +8,9 @@ export const LoginButton = () => {
     </button>
   ) : (
     <>
-      Привет {user}!{" "}
+      Привет {user}!
       <button className="button" onClick={() => setUser("")}>
-        {" "}
-        Выйти{" "}
+        Выйти
       </button>
     </>
   );
