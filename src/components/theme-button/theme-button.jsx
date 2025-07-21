@@ -14,7 +14,6 @@ export const ThemeButton = () => {
     toggleBodyClass("theme-dark", theme !== "dark");
   }, []);
 
-
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
     toggleBodyClass("theme-dark", theme === "dark");
@@ -22,9 +21,9 @@ export const ThemeButton = () => {
 
   return (
     <button
-      className={classNames("", {
+      className={classNames("button", {
         [styles.dark]: theme !== "dark",
-        [styles.light]: theme !== "light"
+        [styles.light]: theme !== "light",
       })}
       onClick={() => toggleTheme()}
     >
