@@ -3,27 +3,28 @@ import styles from "./theme-button.module.css";
 import { useTheme } from "../theme-context/theme-context-hooks.js";
 import { useEffect } from "react";
 
-const toggleBodyClass = (value, state) => {
-  document.body.classList.toggle("theme-dark", state);
+const toggleBodyClass = (state, value = "theme-dark") => {
+  document.body.classList.toggle(value, state);
 };
 
 export const ThemeButton = () => {
   const { theme, setTheme } = useTheme();
 
   useEffect(() => {
-    toggleBodyClass("theme-dark", theme !== "dark");
+    toggleBodyClass(theme !== "dark");
   }, []);
 
   const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-    toggleBodyClass("theme-dark", theme === "dark");
+    const isDark = theme === "dark";
+    setTheme(isDark ? "light" : "dark");
+    toggleBodyClass(isDark);
   };
 
   return (
     <button
       className={classNames("button", {
         [styles.dark]: theme !== "dark",
-        [styles.light]: theme !== "light",
+        [styles.light]: theme !== "light"
       })}
       onClick={() => toggleTheme()}
     >
