@@ -1,7 +1,12 @@
+import { ThemeButton } from "../theme-button/theme-button.jsx";
+
 function Layout({ children, header }) {
   return (
     <>
-      <header>{header}</header>
+      <header>
+        <ThemeButton />
+        {header}
+      </header>
       <main>{children}</main>
       <footer>Подвал</footer>
     </>
