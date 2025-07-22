@@ -8,17 +8,19 @@ const toggleBodyClass = (state, value = "theme-dark") => {
 export const useThemeContext = () => useContext(ThemeContext);
 
 export const useTheme = () => {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    toggleBodyClass(theme !== "dark");
+    toggleBodyClass(isDarkTheme());
   }, []);
 
+  const isDarkTheme = () => theme === "dark";
+
   const toggleTheme = () => {
-    const isDark = theme === "dark";
+    const isDark = isDarkTheme();
     setTheme(isDark ? "light" : "dark");
-    toggleBodyClass(isDark);
+    toggleBodyClass(!isDark);
   };
 
-  return { theme, toggleTheme };
+  return { toggleTheme, isDarkTheme };
 };
