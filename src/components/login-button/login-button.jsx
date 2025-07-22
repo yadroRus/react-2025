@@ -1,17 +1,14 @@
-import { useLogin } from "../login-context/login-context-hooks.js";
+import { Button } from "../button/button.jsx";
+import { useLoginContext } from "../login-context/hooks.js";
 
 export const LoginButton = () => {
-  const { user, setUser } = useLogin();
+  const { user, login, logout } = useLoginContext();
   return !user ? (
-    <button className="button" onClick={() => setUser("Пупкин")}>
-      Войти
-    </button>
+    <Button onClick={() => login()} text="Войти" />
   ) : (
     <>
       Привет {user}!
-      <button className="button" onClick={() => setUser("")}>
-        Выйти
-      </button>
+      <Button onClick={() => logout()} text="Выйти" />
     </>
   );
 };

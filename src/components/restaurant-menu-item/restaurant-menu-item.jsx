@@ -1,14 +1,14 @@
 import { DishCounter } from "../dish-counter/dish-counter.jsx";
 import { useState } from "react";
 import styles from "./restaurant-menu-item.module.css";
-import { useLogin } from "../login-context/login-context-hooks.js";
+import { useLoginContext } from "../login-context/hooks.js";
 
 function RestaurantMenuItem({ name, price, ingredients }) {
   const [totalPrice, setTotalPrice] = useState(0);
 
   const onCounterChange = (count) => setTotalPrice(count * price);
 
-  const { user } = useLogin();
+  const { user } = useLoginContext();
 
   return (
     <li className={styles.item}>

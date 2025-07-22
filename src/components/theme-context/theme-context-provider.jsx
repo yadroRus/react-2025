@@ -1,9 +1,10 @@
-import { createContext, useState } from "react";
+import { createContext } from "react";
+import { useTheme } from "./hooks.js";
 
 export const ThemeContext = createContext("light");
 
 export const ThemeContextProvider = ({ children }) => {
-  const [theme, setTheme] = useState("dark");
+  const { theme, toggleTheme } = useTheme();
 
-  return <ThemeContext value={{ theme, setTheme }}>{children}</ThemeContext>;
+  return <ThemeContext value={{ theme, toggleTheme }}>{children}</ThemeContext>;
 };
