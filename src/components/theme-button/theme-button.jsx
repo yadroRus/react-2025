@@ -7,8 +7,8 @@ export const ThemeButton = () => {
   return (
     <Button
       onClick={toggleTheme}
-      text={`Тема ${isDarkTheme() ? "темная" : "светлая"}`}
-      className={isDarkTheme() ? styles.dark : styles.light}
+      text={`Тема ${isDarkTheme ? "темная" : "светлая"}`}
+      className={isDarkTheme ? styles.dark : styles.light}
     />
   );
 };

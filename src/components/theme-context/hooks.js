@@ -11,15 +11,14 @@ export const useTheme = () => {
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    toggleBodyClass(isDarkTheme());
+    toggleBodyClass(isDarkTheme);
   }, []);
 
-  const isDarkTheme = () => theme === "dark";
+  const isDarkTheme = theme === "dark";
 
   const toggleTheme = () => {
-    const isDark = isDarkTheme();
-    setTheme(isDark ? "light" : "dark");
-    toggleBodyClass(!isDark);
+    setTheme(isDarkTheme ? "light" : "dark");
+    toggleBodyClass(!isDarkTheme);
   };
 
   return { toggleTheme, isDarkTheme };
