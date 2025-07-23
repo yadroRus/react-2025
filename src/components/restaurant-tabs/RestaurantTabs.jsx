@@ -5,11 +5,11 @@ import styles from "./restaurant-tabs.module.css";
 
 function RestaurantTabs({ restaurants }) {
   const [activeRestaurantId, setActiveRestaurantId] = useState(
-    restaurants[0].id
+    restaurants[0].id,
   );
 
   const activeRestaurant = restaurants.find(
-    (restaurant) => restaurant.id === activeRestaurantId
+    (restaurant) => restaurant.id === activeRestaurantId,
   );
 
   const handleTabClick = (id) => {

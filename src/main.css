@@ -1,6 +1,17 @@
+body {
+    background-color: var(--body-bkg-color);
+    color: var(--text-color);
+}
+
 main, header {
     max-width: 650px;
     margin: 0 auto;
+}
+
+header {
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
 }
 
 footer {

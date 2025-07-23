@@ -5,7 +5,8 @@
 }
 
 .button {
-  background-color: white;
+  background-color: var(--body-bkg-color);
+  color: var(--text-color);
   border: 1px solid #ccc;
   border-radius: 3px;
   padding: 5px 10px;
