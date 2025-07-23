@@ -4,7 +4,7 @@ import { useLoginContext } from "../login-context/hooks.js";
 export const LoginButton = () => {
   const { user, login, logout } = useLoginContext();
   return !user ? (
-    <Button onClick={login.bind(this, 'Адольф Пупкин')} text="Войти" />
+    <Button onClick={login.bind(this, "Адольф Пупкин")} text="Войти" />
   ) : (
     <>
       Привет {user}!

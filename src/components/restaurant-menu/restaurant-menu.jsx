@@ -1,21 +1,15 @@
-import RestaurantMenuItem from "../restaurant-menu-item/restaurant-menu-item.jsx";
+import { RestaurantMenuItemContainer } from "../restaurant-menu-item/restaurant-menu-item-container.jsx";
 
-export default function RestaurantMenu({ menu }) {
-  if (!menu) {
+export default function RestaurantMenu({ menuIds }) {
+  if (!menuIds) {
     return null;
   }
-
   return (
     <>
       <h3>Меню</h3>
       <ul>
-        {menu.map(({ id, name, price, ingredients }) => (
-          <RestaurantMenuItem
-            key={id}
-            name={name}
-            price={price}
-            ingredients={ingredients}
-          />
+        {menuIds.map((id) => (
+          <RestaurantMenuItemContainer key={id} dishId={id} />
         ))}
       </ul>
     </>
