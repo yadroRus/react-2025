@@ -1,7 +1,8 @@
 import { Button } from "../button/button.jsx";
+import styles from "./cart-clear-all-button.module.scss";
 
 export const CartClearAllButton = ({ onClick }) => {
   return (
-    <Button onClick={onClick} text="Удалить все" style={{ float: "right" }} />
+    <Button onClick={onClick} text="Удалить все" className={styles.button} />
   );
 };

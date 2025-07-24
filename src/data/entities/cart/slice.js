@@ -7,7 +7,8 @@ export const cartSlice = createSlice({
   },
   selectors: {
     selectCartDishes: ((state) => state.dishes),
-    selectCartDishById: ((state, id) => state.dishes[id])
+    selectCartDishById: ((state, id) => state.dishes[id]),
+    selectCartTotalPrice: ((state) => Object.values(state.dishes).reduce((acc, dish) => acc + dish.totalPrice, 0))
   },
   reducers: {
     addToCart: (state, { payload }) => {
@@ -37,7 +38,7 @@ export const cartSlice = createSlice({
 });
 
 
-export const { selectCartDishes, selectCartDishById } = cartSlice.selectors;
+export const { selectCartDishes, selectCartDishById, selectCartTotalPrice } = cartSlice.selectors;
 export const { addToCart, removeFromCart, removePosition, clearCart } = cartSlice.actions;
 
 
