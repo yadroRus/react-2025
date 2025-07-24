@@ -12,10 +12,7 @@ export const CartItemContainer = ({ dishId, count }) => {
       dishId={dishId}
       name={dish.name}
       price={dish.price}
-      onRemoveClick={(e) => {
-        dispatch(removePosition(dishId));
-        e.stopPropagation(); // исправляет проблему закрытие корзины по клику на кнопку (в нативном JS работало бы и без этой строки)!?
-      }}
+      onRemoveClick={() => dispatch(removePosition(dishId))}
     />
   );
 };
