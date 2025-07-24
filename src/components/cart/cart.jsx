@@ -1,7 +1,7 @@
 import { useLoginContext } from "../login-context/hooks.js";
 import { selectCartDishes } from "../../data/entities/cart/slice.js";
 import { useSelector } from "react-redux";
-import { CartDishContainer } from "../cart-dish/cart-dish-container.jsx";
+import { CartItemContainer } from "../cart-item/cart-item-container.jsx";
 import { CartClearAllButtonContainer } from "../cart-clear-all-button/cart-clear-all-button-container.jsx";
 import { CartTotalPriceContainer } from "../cart-total-price/cart-total-price-container.jsx";
 import styles from "./cart.module.css";
@@ -33,7 +33,7 @@ export const Cart = () => {
           <div className={styles.header}>Выбранно {cartNum} блюд:</div>
           <ul>
             {Object.entries(cartDishes).map(([id, { count }]) => (
-              <CartDishContainer key={id} dishId={id} />
+              <CartItemContainer key={id} dishId={id} />
             ))}
           </ul>
           <CartTotalPriceContainer />

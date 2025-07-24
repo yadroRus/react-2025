@@ -1,6 +1,6 @@
 import {
-  addDish,
-  removeDish,
+  addToCart,
+  removeFromCart,
   selectCartDishById,
 } from "../../data/entities/cart/slice.js";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,13 +14,13 @@ export const useCounter = ({ price = 0, min, max, dishId }) => {
 
   const increment = () => {
     if (max === undefined || count < Number(max)) {
-      dispatch(addDish({ id: dishId, price }));
+      dispatch(addToCart({ id: dishId, price }));
     }
   };
 
   const decrement = () => {
     if (min === undefined || count > Number(min)) {
-      dispatch(removeDish({ id: dishId, price }));
+      dispatch(removeFromCart({ id: dishId, price }));
     }
   };
 

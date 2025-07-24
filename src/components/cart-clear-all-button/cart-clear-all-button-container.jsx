@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { removeAllDishes } from "../../data/entities/cart/slice.js";
+import { clearCart } from "../../data/entities/cart/slice.js";
 import { CartClearAllButton } from "./cart-clear-all-button.jsx";
 
 export const CartClearAllButtonContainer = ({ onClick }) => {
@@ -8,7 +8,7 @@ export const CartClearAllButtonContainer = ({ onClick }) => {
   return (
     <CartClearAllButton
       onClick={() => {
-        dispatch(removeAllDishes());
+        dispatch(clearCart());
         onClick();
         // todo Андрей, вопрос
         /**

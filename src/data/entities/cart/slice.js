@@ -10,13 +10,13 @@ export const cartSlice = createSlice({
     selectCartDishById: ((state, id) => state.dishes[id])
   },
   reducers: {
-    addDish: (state, { payload }) => {
+    addToCart: (state, { payload }) => {
       const { id, price } = payload;
       state.dishes[id] ??= { count: 0, totalPrice: 0 };
       state.dishes[id].count++;
       state.dishes[id].totalPrice = state.dishes[id].count * price;
     },
-    removeDish: (state, { payload }) => {
+    removeFromCart: (state, { payload }) => {
       const { id, price } = payload;
       if (!state.dishes[id]) return;
       state.dishes[id].count--;
@@ -25,12 +25,12 @@ export const cartSlice = createSlice({
         delete state.dishes[id];
       }
     },
-    removeDishCompletely: (state, { payload }) => {
+    removePosition: (state, { payload }) => {
       if (state.dishes[payload]) {
         delete state.dishes[payload];
       }
     },
-    removeAllDishes: (state) => {
+    clearCart: (state) => {
       state.dishes = {};
     }
   }
@@ -38,6 +38,6 @@ export const cartSlice = createSlice({
 
 
 export const { selectCartDishes, selectCartDishById } = cartSlice.selectors;
-export const { addDish, removeDish, removeDishCompletely, removeAllDishes } = cartSlice.actions;
+export const { addToCart, removeFromCart, removePosition, clearCart } = cartSlice.actions;
 
 
