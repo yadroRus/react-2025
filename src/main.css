@@ -6,6 +6,7 @@ body {
 main, header {
     max-width: 650px;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
 header {
@@ -26,7 +27,6 @@ h1 {
     font-size: 2.5em;
     font-weight: bold;
     line-height: 1.5em;
-    padding-bottom: 0.5em;
 }
 
 h2 {

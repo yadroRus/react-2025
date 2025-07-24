@@ -4,10 +4,11 @@
   border-radius: 5px;
   background-color: var(--cart-bkg-color);
   width: 500px;
+  max-width: 100%;
   padding: 30px 30px 50px;
   top: 30px;
   right: 0;
-  z-index: 1;
+  z-index: 2;
   box-shadow: 0 5px 11px 2px var(--cart-shadow-color);
 }
 
@@ -19,6 +20,7 @@
 
 .trigger {
   background-color: #fff6ca;
+  color: black;
 }
 
 .opened {
