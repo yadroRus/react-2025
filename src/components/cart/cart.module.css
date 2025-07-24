@@ -1,0 +1,32 @@
+.cart {
+  position: absolute;
+  border: 1px solid #dadada;
+  border-radius: 5px;
+  background-color: var(--cart-bkg-color);
+  width: 500px;
+  padding: 30px 30px 50px;
+  top: 30px;
+  right: 0;
+  z-index: 1;
+  box-shadow: 0 5px 11px 2px var(--cart-shadow-color);
+}
+
+.header {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.trigger {
+  background-color: #fff6ca;
+}
+
+.opened {
+  background: #eee6ff;
+  color: black;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: default;
+}

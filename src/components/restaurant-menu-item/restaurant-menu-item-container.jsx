@@ -7,6 +7,7 @@ export const RestaurantMenuItemContainer = ({ dishId }) => {
 
   return (
     <RestaurantMenuItem
+      dishId={dishId}
       name={dish.name}
       price={dish.price}
       ingredients={dish.ingredients}
