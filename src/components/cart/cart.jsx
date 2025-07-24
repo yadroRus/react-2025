@@ -32,7 +32,7 @@ export const Cart = () => {
         <div className={classNames("js-cart-area", styles.cart)}>
           <div className={styles.header}>Выбранно {cartNum} блюд:</div>
           <ul>
-            {Object.entries(cartDishes).map(([id, { count }]) => (
+            {Object.keys(cartDishes).map((id) => (
               <CartItemContainer key={id} dishId={id} />
             ))}
           </ul>

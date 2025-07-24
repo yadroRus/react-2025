@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { clearCart } from "../../data/entities/cart/slice.js";
 import { CartClearAllButton } from "./cart-clear-all-button.jsx";
 

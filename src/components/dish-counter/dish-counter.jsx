@@ -2,13 +2,7 @@ import { useCounter } from "./hooks.js";
 import { Counter } from "../counter/counter.jsx";
 import styles from "../restaurant-menu-item/restaurant-menu-item.module.css";
 
-export const DishCounter = ({
-  price,
-  dishId,
-  min = 0,
-  max = 5,
-  onCounterChange,
-}) => {
+export const DishCounter = ({ price, dishId, min = 0, max = 5 }) => {
   const { count, totalPrice, increment, decrement } = useCounter({
     min,
     max,

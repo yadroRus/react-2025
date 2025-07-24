@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CartItem } from "./cart-item.jsx";
 import { removePosition } from "../../data/entities/cart/slice.js";
 
-export const CartItemContainer = ({ dishId, count }) => {
+export const CartItemContainer = ({ dishId }) => {
   const dispatch = useDispatch();
   const dish = useSelector((state) => selectDishById(state, dishId));
 

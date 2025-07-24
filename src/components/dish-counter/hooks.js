@@ -20,13 +20,13 @@ export const useCounter = ({ min, max, dishId, price = 0 }) => {
     if (max === undefined || countRef.current < Number(max)) {
       dispatch(addToCart({ id: dishId, price }));
     }
-  }, [min, max, dishId, price]);
+  }, [max, dishId, price, dispatch]);
 
   const decrement = useCallback(() => {
     if (min === undefined || countRef.current > Number(min)) {
       dispatch(removeFromCart({ id: dishId, price }));
     }
-  }, [min, max, dishId, price]);
+  }, [min, dishId, price, dispatch]);
 
   return { count, totalPrice, increment, decrement };
 };
