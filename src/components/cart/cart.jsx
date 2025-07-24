@@ -22,7 +22,7 @@ export const Cart = () => {
         className={classNames("js-cart-area", {
           [styles.opened]: opened,
           [styles.disabled]: isEmpty,
-          [styles.trigger]: !isEmpty
+          [styles.trigger]: !isEmpty,
         })}
         isDisabled={isEmpty}
         onClick={() => toggleCart(!opened)}
