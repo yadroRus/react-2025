@@ -10,6 +10,18 @@ export const CartClearAllButtonContainer = ({ onClick }) => {
       onClick={() => {
         dispatch(removeAllDishes());
         onClick();
+        // todo Андрей, вопрос
+        /**
+         * <parent onClick={parentOnclick}>
+         *    <child onClick={childOnclick}></child>
+         * </parent>
+         *
+         * при текущей архитектуре почему вызовется только childOnclick?
+         * для того чтобы вызвался parentOnclick, его приходится пробрасывать в child
+         * и вызывать руками, что давольно не логично если вопсриниать onClick как
+         * node.addEventListener('click', ...)
+         *
+         * */
       }}
     />
   );
