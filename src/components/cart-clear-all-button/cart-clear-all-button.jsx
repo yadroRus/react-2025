@@ -1,5 +1,5 @@
 import { Button } from "../button/button.jsx";
-import styles from "./cart-clear-all-button.module.scss";
+import styles from "./cart-clear-all-button.module.css";
 
 export const CartClearAllButton = ({ onClick }) => {
   return (
