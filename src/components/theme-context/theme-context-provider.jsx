@@ -1,7 +1,4 @@
-import { createContext } from "react";
-import { useTheme } from "./hooks.js";
-
-export const ThemeContext = createContext("light");
+import { ThemeContext, useTheme } from "./hooks.js";
 
 export const ThemeContextProvider = ({ children }) => {
   const { isDarkTheme, toggleTheme } = useTheme();

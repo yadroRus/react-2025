@@ -1,4 +1,6 @@
 :root{
     --body-bkg-color: #fff;
     --text-color: #000;
+    --cart-bkg-color: rgba(255, 255, 255, 0.95);
+    --cart-shadow-color: #e4e4e4;
 }

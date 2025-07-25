@@ -1,7 +1,8 @@
 import RestaurantCommentItem from "../restaurant-comment-item/restaurant-comment-item.jsx";
+import { RestaurantCommentItemContainer } from "../restaurant-comment-item/restaurant-comment-item-container.jsx";
 
-export default function RestaurantComments({ comments }) {
-  if (!comments) {
+export default function RestaurantComments({ commentsIds }) {
+  if (!commentsIds) {
     return null;
   }
 
@@ -9,13 +10,8 @@ export default function RestaurantComments({ comments }) {
     <>
       <h3>Отзывы / Оценки</h3>
       <ul>
-        {comments.map(({ id, user, text, rating }) => (
-          <RestaurantCommentItem
-            key={id}
-            author={user}
-            comment={text}
-            rating={rating}
-          />
+        {commentsIds.map((id) => (
+          <RestaurantCommentItemContainer key={id} commentId={id} />
         ))}
       </ul>
     </>

@@ -1,4 +1,6 @@
 .theme-dark {
     --body-bkg-color: #000;
     --text-color: #fff;
+    --cart-bkg-color: rgba(0, 0, 0, 0.95);
+    --cart-shadow-color: #3b3b3b;
 }

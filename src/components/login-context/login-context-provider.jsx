@@ -1,6 +1,5 @@
-import { createContext, useState } from "react";
-
-export const LoginContext = createContext();
+import { useState } from "react";
+import { LoginContext } from "./hooks.js";
 
 export const LoginContextProvider = ({ children }) => {
   const [user, setUser] = useState();

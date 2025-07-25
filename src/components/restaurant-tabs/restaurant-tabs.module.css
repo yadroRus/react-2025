@@ -1,4 +1,10 @@
 .tabs-triggers {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  padding-top: 10px;
+  background-color: var(--body-bkg-color);
+  z-index: 1;
 }
