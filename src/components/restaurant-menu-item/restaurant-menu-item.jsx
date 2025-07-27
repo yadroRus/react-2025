@@ -1,13 +1,8 @@
 import { DishCounter } from "../dish-counter/dish-counter.jsx";
-import { useState } from "react";
 import styles from "./restaurant-menu-item.module.css";
 import { useLoginContext } from "../login-context/hooks.js";
 
-function RestaurantMenuItem({ name, price, ingredients }) {
-  const [totalPrice, setTotalPrice] = useState(0);
-
-  const onCounterChange = (count) => setTotalPrice(count * price);
-
+function RestaurantMenuItem({ dishId, name, price, ingredients }) {
   const { user } = useLoginContext();
 
   return (
@@ -26,8 +21,7 @@ function RestaurantMenuItem({ name, price, ingredients }) {
       </div>
       {user && (
         <div className={styles.counterWrapper}>
-          <span className={styles.totalPrice}>{totalPrice} руб.</span>
-          <DishCounter onCounterChange={onCounterChange} />
+          <DishCounter dishId={dishId} price={price} />
         </div>
       )}
     </li>

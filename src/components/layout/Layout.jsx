@@ -1,12 +1,16 @@
 import { ThemeButton } from "../theme-button/theme-button.jsx";
 import { LoginButton } from "../login-button/login-button.jsx";
+import { Cart } from "../cart/cart.jsx";
 
 function Layout({ children, header }) {
   return (
     <>
       <header>
         <ThemeButton />
-        <LoginButton />
+        <div>
+          <LoginButton />
+          <Cart />
+        </div>
       </header>
       <main>
         {header}

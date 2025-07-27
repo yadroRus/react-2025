@@ -1,19 +1,29 @@
-import { useState } from "react";
+import {
+  addToCart,
+  removeFromCart,
+  selectCartDishById
+} from "../../data/entities/cart/slice.js";
+import { useDispatch, useSelector } from "react-redux";
+import { useCallback } from "react";
 
-export const useCounter = ({ value = 0, min, max }) => {
-  const [count, setCount] = useState(Number(value));
+export const useCounter = ({ min, max, dishId, price = 0 }) => {
+  const dispatch = useDispatch();
+  const cartDish = useSelector((state) =>
+    selectCartDishById(state, dishId)
+  ) || { count: 0, totalPrice: 0 };
+  const { count, totalPrice } = cartDish;
 
-  const increment = () => {
+  const increment = useCallback(() => {
     if (max === undefined || count < Number(max)) {
-      setCount(count + 1);
+      dispatch(addToCart({ id: dishId, price }));
     }
-  };
+  }, [max, dishId, price, dispatch, count]);
 
-  const decrement = () => {
+  const decrement = useCallback(() => {
     if (min === undefined || count > Number(min)) {
-      setCount(count - 1);
+      dispatch(removeFromCart({ id: dishId, price }));
     }
-  };
+  }, [min, dishId, price, dispatch, count]);
 
-  return { count, setCount, increment, decrement };
+  return { count, totalPrice, increment, decrement };
 };

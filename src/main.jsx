@@ -4,10 +4,15 @@ import "./pages/reset.css";
 import "./pages/colors-light.css";
 import "./pages/colors-dark.css";
 import "./main.css";
-import { RestaurantPage } from "./pages/restaurant-page.jsx";
+import { RestaurantPageContainer } from "./pages/restaurant-page-container.jsx";
+import { Provider } from "react-redux";
+import { store } from "./data/redux/store.js";
+
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RestaurantPage />
+    <Provider store={store}>
+      <RestaurantPageContainer />
+    </Provider>
   </StrictMode>
 );
