@@ -3,6 +3,10 @@
   list-style: none;
   padding: 10px;
 
+  &:first-child {
+    margin-top: 12px;
+  }
+
   &:last-child {
     margin-bottom: 20px;
   }

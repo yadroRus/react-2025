@@ -1,0 +1,15 @@
+.link {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    .details {
+      background-color: #ddd;
+    }
+  }
+}
+
+.details {
+  font-size: 0.8em;
+  color: gray;
+}

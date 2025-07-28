@@ -6,4 +6,10 @@
   border: 1px solid gray;
   padding: 3px 5px;
   margin: 0 5px;
+  text-decoration: none;
+}
+
+.active {
+  background-color: #eee9de;
+  color: black;
 }

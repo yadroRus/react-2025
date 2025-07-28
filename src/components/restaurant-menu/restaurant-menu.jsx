@@ -1,17 +1,18 @@
-import { RestaurantMenuItemContainer } from "../restaurant-menu-item/restaurant-menu-item-container.jsx";
+import { RestaurantMenuLinkItemContainer } from "../restaurant-menu-link-item/restaurant-menu-link-item-container.jsx";
 
-export default function RestaurantMenu({ menuIds }) {
+export default function RestaurantMenu({ menuIds, restaurantName }) {
   if (!menuIds) {
     return null;
   }
   return (
-    <>
-      <h3>Меню</h3>
-      <ul>
-        {menuIds.map((id) => (
-          <RestaurantMenuItemContainer key={id} dishId={id} />
-        ))}
-      </ul>
-    </>
+    <ul>
+      {menuIds.map((id) => (
+        <RestaurantMenuLinkItemContainer
+          key={id}
+          dishId={id}
+          restaurantName={restaurantName}
+        />
+      ))}
+    </ul>
   );
 }

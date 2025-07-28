@@ -1,10 +1,19 @@
 import { selectRestaurantById } from "../../data/entities/restuarants/slice.js";
 import { useSelector } from "react-redux";
-import { Tab } from "../tab/Tab.jsx";
+import { Link } from "../link/link.jsx";
+import styles from "../tab/tabs.module.css";
 
-export const RestaurantTabContainer = ({ restaurantId, active, onClick }) => {
+export const RestaurantTabContainer = ({ restaurantId }) => {
   const restaurant = useSelector((state) =>
     selectRestaurantById(state, restaurantId),
   );
-  return <Tab name={restaurant.name} active={active} onClick={onClick} />;
+  return (
+    <Link
+      to={`/res/${restaurant.id}/menu`}
+      className={styles.tab}
+      activeClass={styles.active}
+    >
+      {restaurant.name}
+    </Link>
+  );
 };
