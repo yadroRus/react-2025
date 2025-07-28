@@ -1,18 +1,18 @@
 .tile {
-    width: 200px;
-    display: block;
-    text-decoration: none;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+  width: 200px;
+  display: block;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 .img {
-    width: 200px;
-    height: 120px;
+  width: 200px;
+  height: 120px;
 }
 
 .header {
-    color: #368959;
-    font-size: 22px;
-    padding: 5px 10px;
+  color: #368959;
+  font-size: 22px;
+  padding: 5px 10px;
 }

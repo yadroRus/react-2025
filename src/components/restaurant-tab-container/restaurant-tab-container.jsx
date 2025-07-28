@@ -2,6 +2,7 @@ import { selectRestaurantById } from "../../data/entities/restuarants/slice.js";
 import { useSelector } from "react-redux";
 import { Link } from "../link/link.jsx";
 import styles from "../tab/tabs.module.css";
+import { MENU_PAGE, RESTAURANT_PAGE } from "../../pages/links-paths.js";
 
 export const RestaurantTabContainer = ({ restaurantId }) => {
   const restaurant = useSelector((state) =>
@@ -9,7 +10,7 @@ export const RestaurantTabContainer = ({ restaurantId }) => {
   );
   return (
     <Link
-      to={`/res/${restaurant.id}/menu`}
+      to={`${RESTAURANT_PAGE}/${restaurant.id}/${MENU_PAGE}`}
       className={styles.tab}
       activeClass={styles.active}
       activeUrlText={restaurant.id}

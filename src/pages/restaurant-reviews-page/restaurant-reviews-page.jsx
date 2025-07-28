@@ -4,11 +4,11 @@ import { ReviewForm } from "../../components/review-form/review-form.jsx";
 import { useOutletContext } from "react-router";
 
 export const RestaurantReviewPage = () => {
-  const { reviewsIds } = useOutletContext();
+  const { restaurant } = useOutletContext();
   const { user } = useLoginContext();
   return (
     <>
-      <RestaurantComments commentsIds={reviewsIds} />
+      <RestaurantComments commentsIds={restaurant.reviews} />
       {user && <ReviewForm />}
     </>
   );

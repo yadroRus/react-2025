@@ -1,7 +1,13 @@
 import { NavLink } from "react-router";
 import classNames from "classnames";
 
-export const Link = ({ children, to, activeUrlText, className, activeClass }) => {
+export const Link = ({
+  children,
+  to,
+  activeUrlText,
+  className,
+  activeClass,
+}) => {
   // NOTE: fix for reviews link behavior
   const ulrHasActiveText = window.location.pathname.includes(activeUrlText);
 

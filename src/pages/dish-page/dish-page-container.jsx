@@ -5,12 +5,8 @@ import { DishPage } from "./dish-page.jsx";
 
 export const DishPageContainer = () => {
   const { dishId } = useParams();
-
-  if (!dishId) {
-    return null;
-  }
-
   const dish = useSelector((state) => selectDishById(state, dishId));
+
   if (!dish) {
     return null;
   }

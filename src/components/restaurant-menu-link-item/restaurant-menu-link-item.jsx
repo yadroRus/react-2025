@@ -4,13 +4,19 @@ import linkStyles from "./restaurant-menu-link-item.module.css";
 import { DishCounter } from "../dish-counter/dish-counter.jsx";
 import { useLoginContext } from "../login-context/hooks.js";
 
-function RestaurantMenuLinkItem({ dishId, name, price, restaurantName }) {
+function RestaurantMenuLinkItem({
+  dishId,
+  name,
+  price,
+  restaurantId,
+  restaurantName,
+}) {
   const { user } = useLoginContext();
 
   return (
     <li className={styles.item}>
       <Link
-        to={`/dish/${dishId}?restaurantName=${restaurantName}`}
+        to={`/dish/${dishId}?restaurantName=${restaurantName}&restaurantId=${restaurantId}`}
         className={linkStyles.link}
       >
         {name} <span className={styles.price}>({price} руб.)</span>
