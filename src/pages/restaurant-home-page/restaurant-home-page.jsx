@@ -1,4 +1,4 @@
-import styles from "../../components/restaurant-tile/restaurant-tile.module.css";
+import styles from "./restaurant-home-page.module.css";
 import { Link } from "../../components/link/link.jsx";
 import { Outlet } from "react-router";
 import buttonStyles from "../../components/button/button.module.css";

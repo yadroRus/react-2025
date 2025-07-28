@@ -2,6 +2,7 @@ export const normalizedRestaurants = [
   {
     id: "a757a0e9-03c1-4a2a-b384-8ac21dbe2fb2",
     name: "Dishoom",
+    img: "https://i.pinimg.com/736x/86/fa/02/86fa024476ccc2e47bbe94e63fb133ab.jpg",
     menu: [
       "d75f762a-eadd-49be-8918-ed0daa8dd024",
       "c3cb8f92-a2ed-4716-92a1-b6ea813e9049",
@@ -15,6 +16,7 @@ export const normalizedRestaurants = [
   {
     id: "bb8afbec-2fec-491f-93e9-7f13950dd80b",
     name: "Homeslice",
+    img: "https://ssm-moskow.ru/upload/catalog/items/496/8d199ea708e6f5c9.jpeg",
     menu: [
       "25402233-0095-49ea-9939-1e67ed89ffb9",
       "90902233-0095-49ea-9939-1e67ed89ffb9",
@@ -28,6 +30,7 @@ export const normalizedRestaurants = [
   {
     id: "982bfbce-c5e0-41a0-9f99-d5c20ecee49d",
     name: "Fabrique",
+    img: "https://i.pinimg.com/originals/fb/ba/03/fbba03222277b1ad6191d2332116b10b.jpg",
     menu: [
       "08c9ffa0-d003-4310-9e15-20978743296e",
       "64a4967c-2080-4a99-9074-4655a4569a95",
@@ -38,6 +41,7 @@ export const normalizedRestaurants = [
   {
     id: "d9241927-09e1-44f3-8986-a76346869037",
     name: "Flat Iron",
+    img: "https://i.pinimg.com/736x/08/fd/ab/08fdab0157fc043ee610deae8cfa9ae3.jpg",
     menu: [
       "6c02c2ce-b868-4191-b4a7-8686429f4bac",
       "99bb6fbb-e53b-4b7e-b9c2-23b63b77385d",

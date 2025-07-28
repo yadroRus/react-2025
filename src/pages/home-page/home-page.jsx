@@ -4,7 +4,7 @@ export const HomePage = () => {
   return (
     <>
       <h1> Главная страница</h1>
-      <Link to={"/res"}>Наши рестораны</Link>
+      <Link to={"/res"}>Рестораны</Link>
     </>
   );
 };

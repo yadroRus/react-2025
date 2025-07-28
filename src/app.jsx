@@ -29,8 +29,8 @@ createRoot(document.getElementById("root")).render(
             <Routes>
               <Route element={<Layout />}>
                 <Route index element={<HomePage />} />
+                <Route path="/res" element={<RestaurantsPage />}/>
                 <Route path="/res" element={<RestaurantPageLayoutContainer />}>
-                  <Route path="" element={<RestaurantsPage />}></Route>
                   <Route path=":restaurantId" element={<RestaurantHomePageContainer />}>
                     <Route path="menu" element={<RestaurantMenuPage />} />
                     <Route path="reviews" element={<RestaurantReviewPage />} />
