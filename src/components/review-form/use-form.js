@@ -1,4 +1,4 @@
-import { useCallback, useReducer } from "react";
+import { useCallback, useEffect, useReducer } from "react";
 import { addComment } from "../../data/entities/reviews/slice.js";
 import { addComment as linkCommentToRestaurant } from "../../data/entities/restuarants/slice.js";
 import { useDispatch } from "react-redux";
@@ -53,6 +53,10 @@ export const useForm = ({ restaurantId }) => {
   const [form, dispatch] = useReducer(reducer, DEFAULT_STATE);
   const dispatchRedux = useDispatch();
 
+  useEffect(() => {
+    setName(user.name || "");
+  }, [user]);
+
   const setName = useCallback((text) => {
     dispatch({ type: SET_NAME_ACTION, payload: text });
   }, []);
@@ -103,6 +107,5 @@ export const useForm = ({ restaurantId }) => {
     decrementRating,
     clear,
     submit,
-    user,
   };
 };
