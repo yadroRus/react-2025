@@ -12,6 +12,7 @@ export const RestaurantTabContainer = ({ restaurantId }) => {
       to={`/res/${restaurant.id}/menu`}
       className={styles.tab}
       activeClass={styles.active}
+      activeUrlText={restaurant.id}
     >
       {restaurant.name}
     </Link>

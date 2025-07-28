@@ -1,13 +1,15 @@
 import { NavLink } from "react-router";
 import classNames from "classnames";
 
-export const Link = ({ children, to, replace, className, activeClass }) => {
+export const Link = ({ children, to, activeUrlText, className, activeClass }) => {
+  // NOTE: fix for reviews link behavior
+  const ulrHasActiveText = window.location.pathname.includes(activeUrlText);
+
   return (
     <NavLink
       to={to}
-      replace={replace}
       className={({ isActive }) =>
-        classNames(className, { [activeClass]: isActive })
+        classNames(className, { [activeClass]: isActive || ulrHasActiveText })
       }
     >
       {children}
