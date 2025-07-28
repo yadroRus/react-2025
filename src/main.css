@@ -1,6 +1,7 @@
 body {
     background-color: var(--body-bkg-color);
     color: var(--text-color);
+    min-height: 80vh;
 }
 
 main, header {
@@ -21,6 +22,9 @@ footer {
     height: 60px;
     text-align: center;
     padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 h1 {

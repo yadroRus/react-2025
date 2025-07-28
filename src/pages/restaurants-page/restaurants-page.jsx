@@ -1,5 +1,8 @@
-export const RestaurantsPage = ({restaurantsIds}) => {
+export const RestaurantsPage = () => {
   return (
-    <></>
+    <>
+      <br/>
+      <p>Выбери ресторан.</p>
+    </>
   );
 };

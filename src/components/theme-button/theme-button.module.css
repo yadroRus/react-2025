@@ -1,7 +1,10 @@
-.light {
+.button {
   background: white;
-}
+  border: none;
+  background: none;
+  cursor: pointer;
 
-.dark {
-  background: gray;
+  &:focus {
+    outline: none;
+  }
 }
