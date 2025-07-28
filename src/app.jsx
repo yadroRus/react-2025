@@ -18,7 +18,7 @@ import { RestaurantHomePageContainer } from "./pages/restaurant-home-page/restau
 import { DishPageContainer } from "./pages/dish-page/dish-page-container.jsx";
 import { HomePage } from "./pages/home-page/home-page.jsx";
 import { RestaurantsPage } from "./pages/restaurants-page/restaurants-page.jsx";
-import { MENU_PAGE, RESTAURANT_PAGE, REVIEWS_PAGE } from "./pages/links-paths.js";
+import { DISH_PAGE, MENU_PAGE, RESTAURANT_PAGE, REVIEWS_PAGE } from "./pages/links-paths.js";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -37,7 +37,7 @@ createRoot(document.getElementById("root")).render(
                     <Route path={REVIEWS_PAGE} element={<RestaurantReviewPage />} />
                   </Route>
                 </Route>
-                <Route path="/dish/:dishId" element={<DishPageContainer />} />
+                <Route path={`${DISH_PAGE}/:dishId`} element={<DishPageContainer />} />
                 <Route path="*" element={<Navigate to="/" />} />
               </Route>
             </Routes>

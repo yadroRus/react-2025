@@ -5,9 +5,10 @@ import buttonStyles from "../../components/button/button.module.css";
 import { MENU_PAGE, REVIEWS_PAGE } from "../links-paths.js";
 
 export const RestaurantHomePage = ({ restaurant }) => {
-  const { name } = restaurant;
+  const { name, img } = restaurant;
   return (
     <div className={styles.container}>
+      <img src={img} alt="name" loading="lazy" className={styles.img} />
       <h2 className={styles.name}>{name}</h2>
       <Link to={MENU_PAGE} className={buttonStyles.button} activeClass={buttonStyles.active}>Меню</Link>
       <Link to={REVIEWS_PAGE} className={buttonStyles.button} activeClass={buttonStyles.active}>Отзывы</Link>
