@@ -19,15 +19,19 @@ export const Cart = () => {
   return (
     <>
       <Button
-        className={classNames("js-cart-area", {
+        className={classNames("js-cart-area", styles.carButton, {
           [styles.opened]: opened,
           [styles.disabled]: isEmpty,
           [styles.trigger]: !isEmpty,
         })}
         isDisabled={isEmpty}
         onClick={() => toggleCart(!opened)}
-        text={"Корзина" + (user && cartNum ? ` (${cartNum})` : "")}
-      />
+      >
+        <span className={styles.icon}>🍽️</span>
+        {user && cartNum ? (
+          <span className={styles.iconCount}>{cartNum}</span>
+        ) : null}
+      </Button>
       {opened && !isEmpty ? (
         <div className={classNames("js-cart-area", styles.cart)}>
           <div className={styles.header}>Выбранно {cartNum} блюд:</div>

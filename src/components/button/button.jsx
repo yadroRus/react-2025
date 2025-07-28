@@ -1,7 +1,14 @@
 import classNames from "classnames";
 import styles from "./button.module.css";
 
-export const Button = ({ onClick, className, text, isDisabled, style }) => {
+export const Button = ({
+  children,
+  onClick,
+  className,
+  text,
+  isDisabled,
+  style,
+}) => {
   return (
     <button
       className={classNames(styles.button, className)}
@@ -9,7 +16,7 @@ export const Button = ({ onClick, className, text, isDisabled, style }) => {
       style={style}
       disabled={isDisabled}
     >
-      {text}
+      {text || children}
     </button>
   );
 };
