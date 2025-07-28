@@ -13,12 +13,12 @@ import { LoginContextProvider } from "./components/login-context/login-context-p
 import Layout from "./layouts/main.jsx";
 import { RestaurantPageLayoutContainer } from "./layouts/restaurant-page-layout-container.jsx";
 import { RestaurantMenuPage } from "./pages/restaurant-menu-page/restaurant-menu-page.jsx";
-import { RestaurantReviewPage } from "./pages/restaurant-reviews-page/restaurant-reviews-page.jsx";
 import { RestaurantHomePageContainer } from "./pages/restaurant-home-page/restaurant-home-page-container.jsx";
 import { DishPageContainer } from "./pages/dish-page/dish-page-container.jsx";
 import { HomePage } from "./pages/home-page/home-page.jsx";
 import { RestaurantsPage } from "./pages/restaurants-page/restaurants-page.jsx";
 import { DISH_PAGE, MENU_PAGE, RESTAURANT_PAGE, REVIEWS_PAGE } from "./pages/links-paths.js";
+import { RestaurantReviewsPageContainer } from "./pages/restaurant-reviews-page/restaurant-reviews-page-container.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -34,7 +34,7 @@ createRoot(document.getElementById("root")).render(
                 <Route path={RESTAURANT_PAGE} element={<RestaurantPageLayoutContainer />}>
                   <Route path=":restaurantId" element={<RestaurantHomePageContainer />}>
                     <Route path={MENU_PAGE} element={<RestaurantMenuPage />} />
-                    <Route path={REVIEWS_PAGE} element={<RestaurantReviewPage />} />
+                    <Route path={REVIEWS_PAGE} element={<RestaurantReviewsPageContainer />} />
                   </Route>
                 </Route>
                 <Route path={`${DISH_PAGE}/:dishId`} element={<DishPageContainer />} />
