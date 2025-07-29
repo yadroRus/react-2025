@@ -25,7 +25,7 @@ function RestaurantMenuLinkItem({
           <span className={linkStyles.details}>подробнее...</span>
         </div>
       </Link>
-      {user && (
+      {user.name && (
         <div className={styles.counterWrapper}>
           <DishCounter dishId={dishId} price={price} />
         </div>

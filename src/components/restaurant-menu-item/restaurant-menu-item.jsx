@@ -19,7 +19,7 @@ function RestaurantMenuItem({ dishId, name, price, ingredients }) {
           ))}
         </div>
       </div>
-      {user && (
+      {user.name && (
         <div className={styles.counterWrapper}>
           <DishCounter dishId={dishId} price={price} />
         </div>
