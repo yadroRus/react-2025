@@ -6,7 +6,6 @@ import { selectUserById } from "../../data/entities/users/slice.js";
 export const RestaurantCommentItemContainer = ({ commentId }) => {
   const comment = useSelector((state) => selectReviewById(state, commentId));
   const user = useSelector((state) => selectUserById(state, comment.userId));
-
   return (
     <RestaurantCommentItem
       user={user.name}
