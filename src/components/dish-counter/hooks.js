@@ -1,7 +1,7 @@
 import {
   addToCart,
   removeFromCart,
-  selectCartDishById
+  selectCartDishById,
 } from "../../data/entities/cart/slice.js";
 import { useDispatch, useSelector } from "react-redux";
 import { useCallback } from "react";
@@ -9,7 +9,7 @@ import { useCallback } from "react";
 export const useCounter = ({ min, max, dishId, price = 0 }) => {
   const dispatch = useDispatch();
   const cartDish = useSelector((state) =>
-    selectCartDishById(state, dishId)
+    selectCartDishById(state, dishId),
   ) || { count: 0, totalPrice: 0 };
   const { count, totalPrice } = cartDish;
 

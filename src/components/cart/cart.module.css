@@ -18,6 +18,25 @@
   margin-bottom: 12px;
 }
 
+.carButton {
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.icon {
+  font-size: 25px;
+  border: none;
+}
+
+.iconCount {
+  font-size: 12px;
+  position: relative;
+  top: -10px;
+}
+
 .trigger {
   background-color: #fff6ca;
   color: black;
@@ -29,6 +48,6 @@
 }
 
 .disabled {
-  opacity: 0.5;
+  opacity: 0.3;
   cursor: default;
 }

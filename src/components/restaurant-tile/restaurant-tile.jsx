@@ -1,18 +1,13 @@
-import RestaurantComments from "../restaurant-comments/restaurant-comments.jsx";
-import RestaurantMenu from "../restaurant-menu/restaurant-menu.jsx";
-import { ReviewForm } from "../review-form/review-form.jsx";
 import styles from "./restaurant-tile.module.css";
-import { useLoginContext } from "../login-context/hooks.js";
+import { Link } from "../link/link.jsx";
+import { MENU_PAGE, RESTAURANT_PAGE } from "../../pages/links-paths.js";
 
-function RestaurantTile({ name, menuIds, reviewsIds }) {
-  const { user } = useLoginContext();
+function RestaurantTile({ id, name, img }) {
   return (
-    <div className={styles.container}>
-      <h2 className={styles.name}>{name}</h2>
-      <RestaurantMenu menuIds={menuIds} />
-      <RestaurantComments commentsIds={reviewsIds} />
-      {user && <ReviewForm />}
-    </div>
+    <Link to={`${RESTAURANT_PAGE}/${id}/${MENU_PAGE}`} className={styles.tile}>
+      <img loading="lazy" src={img} alt={name} className={styles.img} />
+      <h2 className={styles.header}>{name}</h2>
+    </Link>
   );
 }
 

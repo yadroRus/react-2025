@@ -1,0 +1,14 @@
+.container {
+    border: 1px solid #ddd;
+    margin: 20px 0 50px;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.name {
+    color: #368959;
+}
+
+.img{
+    width: 150px;
+}

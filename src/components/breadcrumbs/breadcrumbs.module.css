@@ -1,0 +1,19 @@
+.arrow {
+  color: gray;
+  font-size: 14px;
+  margin: 0 5px;
+}
+
+.link {
+  color: var(--text-color);
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+.text {
+  color: gray;
+}

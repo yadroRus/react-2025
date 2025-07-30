@@ -1,7 +1,8 @@
 export const normalizedRestaurants = [
   {
     id: "a757a0e9-03c1-4a2a-b384-8ac21dbe2fb2",
-    name: "Dishoom",
+    name: "Винич",
+    img: "https://avatars.mds.yandex.net/i?id=ca7e3c485b52c59a446d5f22c4f07b91_l-12569748-images-thumbs&n=13",
     menu: [
       "d75f762a-eadd-49be-8918-ed0daa8dd024",
       "c3cb8f92-a2ed-4716-92a1-b6ea813e9049",
@@ -14,7 +15,8 @@ export const normalizedRestaurants = [
   },
   {
     id: "bb8afbec-2fec-491f-93e9-7f13950dd80b",
-    name: "Homeslice",
+    name: "Смятка",
+    img: "https://i.mycdn.me/image?id=872439231715&t=50&plc=WEB&tkn=*LvEZYD3bifWeuN4aOYMlpKjL19M&fn=external_8",
     menu: [
       "25402233-0095-49ea-9939-1e67ed89ffb9",
       "90902233-0095-49ea-9939-1e67ed89ffb9",
@@ -27,7 +29,8 @@ export const normalizedRestaurants = [
   },
   {
     id: "982bfbce-c5e0-41a0-9f99-d5c20ecee49d",
-    name: "Fabrique",
+    name: "Берлога",
+    img: "https://avatars.mds.yandex.net/i?id=d261a1b5bf5844a49d5a74aac16e8110_l-11374488-images-thumbs&n=13",
     menu: [
       "08c9ffa0-d003-4310-9e15-20978743296e",
       "64a4967c-2080-4a99-9074-4655a4569a95",
@@ -37,7 +40,8 @@ export const normalizedRestaurants = [
   },
   {
     id: "d9241927-09e1-44f3-8986-a76346869037",
-    name: "Flat Iron",
+    name: "Тили-тили",
+    img: "https://yandex-images.clstorage.net/o1v0J0318/f82794BeX/GzCDJbTWAw1TGyjWoD1gyRyZ7jqnFYB9Fwzfv8fyBiACsN1nylP7fQiJOjuoPuM_aJRZ-IlYE_OfJUFd1Lwf_lYl0hT523oRUw95-okNCPlczN5Pq0CIGQcRu4_KTvP502gx0weWMrj0_ToXrC_LS2jl_EjJEWYHigV9TXTpAiN39IPt9JLGBS-PqYoQNRjdgFiywnfQJBwrJBJaZnLTVe_87b8HEkY09FGiTyDzevvYkcAVqfFeu051CfFo6UJDSwzjxeTS3gVjG0HSSB2AmaRw5iLTLOyUV7jyUoJ2O20HPFk3C3q6VHzxqoc0_47_SMGcOVFVave-6ekBtC1KP5dkm-XQKn594xMxcpShHD0cEFKyZ_Dk9Puwkm4a2otZC7Bhx2M6djj4vaI_NB86Q-jBPA2RiRJ3CsEREWyRagPDqNs9pCrmiStjeWLUoXgZONRCQgfI2MDn8G5ysnJfVYuEyVuTLrKkDDn-Z5i3ottM1TA9FQ0-415ViXH42Y7zF7jv_awqhlEnx83SDAmYHeCQzp4XQKCUrzx-Go4OSxW31H1T6-ZyqGhxfqsMc7p_2A0cYfGJUmPGoa3xtCF-k6sorxE0FnKVq6MxrohhiElYRIpCZ_iEeMvASs6uPofxMwiZB_-uBjSoxRK7cBfO_8hZuIXF2V4fpskVAQDtkvOTDN8pFBpWJcdH4abQYdyFtGwa2ovktIxTFGr6un4TZWd8yasnarJA9Il-E7BTPttohRgBmX1eazJZ2RH8Ter7I1hfxZiyZgVfr0HOjGH06eDAgjoDgKzAMyBu5mLWb-UT3IlXh-I2wByxbuuwP5Z3eD2s5U2pDqvONUVllJHuu4sMV31gLpYRR9tFagyt0MmQNPI6-_D47G8U7gJG8qc541ABx4tyktDA_XIDpFPie3zhiP1xUZoThslBAfyBzv8LeDvZBNLyhbujIarQ9QjNJFyCGuOY_JTD7BaubmZk",
     menu: [
       "6c02c2ce-b868-4191-b4a7-8686429f4bac",
       "99bb6fbb-e53b-4b7e-b9c2-23b63b77385d",

@@ -8,9 +8,9 @@ export const RestaurantTileContainer = ({ restaurantId }) => {
   );
   return (
     <RestaurantTile
+      id={restaurantId}
       name={restaurant.name}
-      menuIds={restaurant.menu}
-      reviewsIds={restaurant.reviews}
+      img={restaurant.img}
     />
   );
 };

@@ -1,10 +1,18 @@
-.container {
+.tile {
+  width: 200px;
+  display: block;
+  text-decoration: none;
   border: 1px solid #ddd;
-  margin: 20px 0 50px;
-  padding: 20px;
   border-radius: 4px;
 }
 
-.name {
+.img {
+  width: 200px;
+  height: 120px;
+}
+
+.header {
   color: #368959;
+  font-size: 22px;
+  padding: 5px 10px;
 }
