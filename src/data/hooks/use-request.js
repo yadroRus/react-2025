@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { IDLE, PENDING, REJECTED, selectRequestStatus } from "../entities/request/sliсe.js";
 
 export const requestText = (status) => {
-  if (status === PENDING || status === IDLE) {
+  if (status === PENDING) {
     return "загрузка...";
   }
   if (status === REJECTED) {
