@@ -1,9 +1,4 @@
 import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import "./pages/reset.css";
-import "./pages/colors-light.css";
-import "./pages/colors-dark.css";
-import "./main.css";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import { Provider } from "react-redux";
 import { store } from "./data/redux/store.js";
@@ -20,30 +15,32 @@ import { RestaurantsPage } from "./pages/restaurants-page/restaurants-page.jsx";
 import { DISH_PAGE, MENU_PAGE, RESTAURANT_PAGE, REVIEWS_PAGE } from "./pages/links-paths.js";
 import { RestaurantReviewsPageContainer } from "./pages/restaurant-reviews-page/restaurant-reviews-page-container.jsx";
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <Provider store={store}>
-      <ThemeContextProvider>
-        <ScrollProgress />
-        <LoginContextProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route element={<Layout />}>
-                <Route index element={<HomePage />} />
-                <Route path={RESTAURANT_PAGE} element={<RestaurantsPage />}/>
-                <Route path={RESTAURANT_PAGE} element={<RestaurantPageLayoutContainer />}>
-                  <Route path=":restaurantId" element={<RestaurantHomePageContainer />}>
-                    <Route path={MENU_PAGE} element={<RestaurantMenuPage />} />
-                    <Route path={REVIEWS_PAGE} element={<RestaurantReviewsPageContainer />} />
+export const App = ()=>{
+  return (
+    <StrictMode>
+      <Provider store={store}>
+        <ThemeContextProvider>
+          <ScrollProgress />
+          <LoginContextProvider>
+            <BrowserRouter>
+              <Routes>
+                <Route element={<Layout />}>
+                  <Route index element={<HomePage />} />
+                  <Route path={RESTAURANT_PAGE} element={<RestaurantsPage />}/>
+                  <Route path={RESTAURANT_PAGE} element={<RestaurantPageLayoutContainer />}>
+                    <Route path=":restaurantId" element={<RestaurantHomePageContainer />}>
+                      <Route path={MENU_PAGE} element={<RestaurantMenuPage />} />
+                      <Route path={REVIEWS_PAGE} element={<RestaurantReviewsPageContainer />} />
+                    </Route>
                   </Route>
+                  <Route path={`${DISH_PAGE}/:dishId`} element={<DishPageContainer />} />
+                  <Route path="*" element={<Navigate to="/" />} />
                 </Route>
-                <Route path={`${DISH_PAGE}/:dishId`} element={<DishPageContainer />} />
-                <Route path="*" element={<Navigate to="/" />} />
-              </Route>
-            </Routes>
-          </BrowserRouter>
-        </LoginContextProvider>
-      </ThemeContextProvider>
-    </Provider>
-  </StrictMode>
-);
+              </Routes>
+            </BrowserRouter>
+          </LoginContextProvider>
+        </ThemeContextProvider>
+      </Provider>
+    </StrictMode>
+  )
+}
