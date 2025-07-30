@@ -3,7 +3,7 @@ import { selectRestaurantsIds } from "./slice.js";
 
 export const getRestaurants = createAsyncThunk(
   "restaurants/getRestaurants",
-  async (_, { getState, dispatch, rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     console.log(" запрос на сервер!!!!");
     const response = await fetch("http://localhost:3001/api/restaurants");
     const result = await response.json();
@@ -17,6 +17,7 @@ export const getRestaurants = createAsyncThunk(
       const state = getState();
       const restaurantsIds = selectRestaurantsIds(state);
       return !restaurantsIds.length;
-    }
+    },
+    dispatchConditionRejection: true
   }
 );
