@@ -4,7 +4,7 @@ import { selectRestaurantById } from "./slice.js";
 export const getRestaurant = createAsyncThunk(
   "restaurants/getRestaurant",
   async (restaurantId, { rejectWithValue }) => {
-    console.log(`Гризум ресторан ${restaurantId} !!!`);
+    console.log(`Грузим ресторан ${restaurantId} !!!`);
     const response = await fetch(`http://localhost:3001/api/restaurant/${restaurantId}`);
     const result = await response.json();
 

@@ -8,8 +8,8 @@ router.get("/restaurants", (req, res, next) => {
     return {
       id: restaurant.id,
       name: restaurant.name,
-      img: restaurant.img,
-    }
+      img: restaurant.img
+    };
   }));
 });
 
@@ -28,11 +28,20 @@ router.get("/dishes", (req, res, next) => {
   const { restaurantId, dishId } = req.query;
   let result = products;
 
+  console.log(restaurantId);
   if (restaurantId) {
     const restaurant = getById(restaurants)(restaurantId);
     if (restaurant) {
       result = restaurant.menu.map(getById(result));
+      result = result.map((dish) => {
+        return {
+          id: dish.id,
+          name: dish.name,
+          price: dish.price
+        };
+      });
     }
+    console.log(result);
   }
 
   if (!restaurantId && dishId) {
@@ -74,7 +83,7 @@ router.post("/review/:restaurantId", (req, res, next) => {
 
     newReview = {
       ...body,
-      id: newReviewId,
+      id: newReviewId
     };
     restaurant.reviews.push(newReviewId);
     reviews.push(newReview);
