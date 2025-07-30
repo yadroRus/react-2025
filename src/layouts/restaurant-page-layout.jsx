@@ -6,7 +6,12 @@ import { RESTAURANT_PAGE } from "../pages/links-paths.js";
 import { FULFILLED } from "../data/entities/request/sliсe.js";
 import { requestText } from "../data/hooks/use-request.js";
 
-export const RestaurantPageLayout = ({ restaurantsIds, restaurant, requestStatus }) => {
+export const RestaurantPageLayout = ({
+                                       restaurantsIds,
+                                       restaurant,
+                                       requestStatus,
+                                       restaurantRequestStatus
+                                     }) => {
   const breadcrumbs = [
     {
       text: "Рестораны",
@@ -33,7 +38,7 @@ export const RestaurantPageLayout = ({ restaurantsIds, restaurant, requestStatus
                 />
               ))}
             </div>
-            <Outlet context={{ restaurant }} />
+            <Outlet context={{ restaurant, restaurantRequestStatus }} />
           </>
         )}
     </>
