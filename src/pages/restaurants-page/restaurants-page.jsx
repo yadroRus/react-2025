@@ -1,16 +1,10 @@
-import { useSelector } from "react-redux";
-import { selectRestaurantsIds } from "../../data/entities/restaurants/slice.js";
 import styles from "../../components/restaurant-tabs/restaurant-tabs.module.css";
 import { RestaurantTileContainer } from "../../components/restaurant-tile/restaurant-tile-container.jsx";
 import { Breadcrumbs } from "../../components/breadcrumbs/breadcrumbs.jsx";
-import { getRestaurants } from "../../data/entities/restaurants/get-restaurants.js";
-import { requestText, useRequest } from "../../data/hooks/use-request.js";
+import { requestText } from "../../data/hooks/use-request.js";
 import { FULFILLED } from "../../data/entities/request/sliсe.js";
 
-export const RestaurantsPage = () => {
-  const requestStatus = useRequest(getRestaurants);
-  const restaurantsIds = useSelector(selectRestaurantsIds);
-
+export const RestaurantsPage = ({ requestStatus, restaurantsIds }) => {
   const breadcrumbs = [
     {
       text: "Рестораны"
