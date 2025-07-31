@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "start-server": "node materials/simple_api/server.js",
     "lint": "eslint src",
     "preview": "vite preview",
     "prettier": "prettier src/components --write",

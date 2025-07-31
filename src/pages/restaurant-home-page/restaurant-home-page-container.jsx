@@ -2,7 +2,7 @@ import { RestaurantHomePage } from "./restaurant-home-page.jsx";
 import { useOutletContext } from "react-router";
 
 export const RestaurantHomePageContainer = () => {
-  const { restaurant } = useOutletContext();
+  const { restaurant, restaurantRequestStatus } = useOutletContext();
 
   return (
     <RestaurantHomePage restaurant={restaurant}
@@ -10,6 +10,7 @@ export const RestaurantHomePageContainer = () => {
                         menuIds={restaurant.menu}
                         reviewsIds={restaurant.reviews}
                         restaurantId={restaurant.id}
+                        restaurantRequestStatus={restaurantRequestStatus}
     />
   );
 };

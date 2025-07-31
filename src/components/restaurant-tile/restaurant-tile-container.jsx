@@ -1,6 +1,6 @@
 import RestaurantTile from "./restaurant-tile.jsx";
 import { useSelector } from "react-redux";
-import { selectRestaurantById } from "../../data/entities/restuarants/slice.js";
+import { selectRestaurantById } from "../../data/entities/restaurants/slice.js";
 
 export const RestaurantTileContainer = ({ restaurantId }) => {
   const restaurant = useSelector((state) =>
