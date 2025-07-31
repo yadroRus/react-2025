@@ -8,7 +8,7 @@ export const RestaurantCommentItemContainer = ({ commentId }) => {
   const user = useSelector((state) => selectUserById(state, comment.userId));
   return (
     <RestaurantCommentItem
-      user={user.name}
+      user={user?.name}
       text={comment.text}
       rating={comment.rating}
     />
