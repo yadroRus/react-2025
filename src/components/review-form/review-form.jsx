@@ -8,7 +8,7 @@ const isFormClear = (form) => {
   return !Object.values(form).find((value) => !!value);
 };
 
-export const ReviewForm = memo(({ restaurantId }) => {
+export const ReviewForm = memo(({ restaurantId, onSubmit }) => {
   const {
     form,
     setName,
@@ -16,7 +16,6 @@ export const ReviewForm = memo(({ restaurantId }) => {
     incrementRating,
     decrementRating,
     clear,
-    submit,
   } = useForm({ restaurantId });
 
   const { name, comment, rating } = form;
@@ -61,7 +60,7 @@ export const ReviewForm = memo(({ restaurantId }) => {
 
         <button
           className={classNames(styles.button, {
-            [styles.buttonDisabled]: inputsEmpty,
+            [styles.buttonDisabled]: inputsEmpty
           })}
           onClick={clear}
         >
@@ -69,9 +68,9 @@ export const ReviewForm = memo(({ restaurantId }) => {
         </button>
         <button
           className={classNames(styles.button, {
-            [styles.buttonDisabled]: inputsEmpty,
+            [styles.buttonDisabled]: inputsEmpty
           })}
-          onClick={!inputsEmpty && submit}
+          onClick={!inputsEmpty ? () => onSubmit(form) : null}
         >
           отправить
         </button>

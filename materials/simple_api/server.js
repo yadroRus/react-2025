@@ -2,10 +2,12 @@ const express = require("express");
 const api = require("./api");
 const bodyParser = require("body-parser");
 const port = 3001;
+const cors = require("cors");
 
 const app = express();
+app.use(cors({origin:true,credentials: true}));
 
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "*");
   res.header(
@@ -17,7 +19,8 @@ app.use(function (req, res, next) {
 app.use(bodyParser.json());
 app.use("/api", api);
 
-app.listen(port, "localhost", function (err) {
+
+app.listen(port, "localhost", function(err) {
   if (err) {
     console.log(err);
     return;

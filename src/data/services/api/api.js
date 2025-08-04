@@ -6,6 +6,7 @@ export const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3001/api"
   }),
+  tagTypes: ["review"],
   endpoints: (builder) => ({
     getRestaurants: builder.query({
       query: () => "/restaurants",
@@ -25,12 +26,21 @@ export const api = createApi({
     }),
     getReviews: builder.query({
       query: (restaurantId) => `/reviews?restaurantId=${restaurantId}`,
+      providesTags: (_, __, id) => [{ type: "review", id }],
       keepUnusedDataFor: 20
+    }),
+    addReview: builder.mutation({
+      query: ({ restaurantId, review }) => ({
+        url: `/review/${restaurantId}`,
+        method: "POST",
+        body: review
+      }),
+      invalidatesTags: (_, __, { id }) => [{ type: "review", id }]
     }),
     getUsers: builder.query({
       query: () => `/users`,
       keepUnusedDataFor: 20
-    }),
+    })
   })
 });
 
@@ -42,4 +52,5 @@ export const {
   useGetDishByIdQuery,
   useGetReviewsQuery,
   useGetUsersQuery,
+  useAddReviewMutation
 } = api;

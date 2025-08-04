@@ -1,7 +1,7 @@
 import { useLoginContext } from "../../components/login-context/hooks.js";
 import { RestaurantReviewsPage } from "./restaurant-reviews-page.jsx";
 import { useOutletContext } from "react-router";
-import { useGetReviewsQuery } from "../../data/services/api/api.js";
+import { useAddReviewMutation, useGetReviewsQuery } from "../../data/services/api/api.js";
 
 export const RestaurantReviewsPageContainer = () => {
   const { restaurant } = useOutletContext();
@@ -13,8 +13,24 @@ export const RestaurantReviewsPageContainer = () => {
 
   const { data: restaurantReviews, status: requestStatus } = useGetReviewsQuery(restaurant.id);
 
+
+  const [addReview, isAddReviewLoading] = useAddReviewMutation();
+
+  const handelOnReview = (form) => {
+    addReview({
+      restaurantId: restaurant.id,
+      review: {
+        text: form.comment,
+        rating: form.rating,
+        userId: user.userId
+      }
+    });
+  };
+
   return <RestaurantReviewsPage user={user}
                                 reviews={restaurantReviews}
                                 restaurantId={restaurant.id}
-                                requestStatus={requestStatus} />;
+                                requestStatus={requestStatus}
+                                onReviewSubmit={handelOnReview}
+  />;
 };
