@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useReducer } from "react";
 import { addComment } from "../../data/entities/reviews/slice.js";
-import { addComment as linkCommentToRestaurant } from "../../data/entities/restuarants/slice.js";
+import { addComment as linkCommentToRestaurant } from "../../data/entities/restaurants/slice.js";
 import { useDispatch } from "react-redux";
 import { guid } from "../../data/helpers.js";
 import { useLoginContext } from "../login-context/hooks.js";

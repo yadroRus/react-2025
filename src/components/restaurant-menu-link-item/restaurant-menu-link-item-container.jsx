@@ -12,9 +12,8 @@ export const RestaurantMenuLinkItemContainer = ({
   return (
     <RestaurantMenuLinkItem
       dishId={dishId}
-      name={dish.name}
-      price={dish.price}
-      ingredients={dish.ingredients}
+      name={dish?.name}
+      price={dish?.price}
       restaurantId={restaurantId}
       restaurantName={restaurantName}
     />

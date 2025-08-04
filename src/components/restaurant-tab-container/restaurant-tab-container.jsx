@@ -1,4 +1,4 @@
-import { selectRestaurantById } from "../../data/entities/restuarants/slice.js";
+import { selectRestaurantById } from "../../data/entities/restaurants/slice.js";
 import { useSelector } from "react-redux";
 import { Link } from "../link/link.jsx";
 import styles from "../tab/tabs.module.css";
