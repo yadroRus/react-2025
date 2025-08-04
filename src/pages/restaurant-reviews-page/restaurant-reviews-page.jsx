@@ -13,7 +13,7 @@ export const RestaurantReviewsPage = ({
   return requestStatus !== FULFILLED && !reviews ?
     requestText(requestStatus) : (
       <>
-        <RestaurantComments reviews={reviews} />
+        <RestaurantComments reviews={reviews} userId={user.userId} />
         {user.name && <ReviewForm restaurantId={restaurantId} onSubmit={onReviewSubmit}/>}
       </>
     );

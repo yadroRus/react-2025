@@ -37,6 +37,14 @@ export const api = createApi({
       }),
       invalidatesTags: (_, __, { id }) => [{ type: "review", id }]
     }),
+    updateReview: builder.mutation({
+      query: ({ reviewId, review }) => ({
+        url: `/review/${reviewId}`,
+        method: "PATCH",
+        body: review
+      }),
+      invalidatesTags: (_, __, { id }) => [{ type: "review", id }]
+    }),
     getUsers: builder.query({
       query: () => `/users`,
       keepUnusedDataFor: 20
@@ -52,5 +60,6 @@ export const {
   useGetDishByIdQuery,
   useGetReviewsQuery,
   useGetUsersQuery,
-  useAddReviewMutation
+  useAddReviewMutation,
+  useUpdateReviewMutation,
 } = api;
