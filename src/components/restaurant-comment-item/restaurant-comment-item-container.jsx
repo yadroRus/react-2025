@@ -1,16 +1,14 @@
 import RestaurantCommentItem from "./restaurant-comment-item.jsx";
-import { useSelector } from "react-redux";
-import { selectReviewById } from "../../data/entities/reviews/slice.js";
-import { selectUserById } from "../../data/entities/users/slice.js";
+import { useGetUsersQuery } from "../../data/services/api/api.js";
+import { FULFILLED } from "../../data/entities/request/sliсe.js";
 
-export const RestaurantCommentItemContainer = ({ commentId }) => {
-  const comment = useSelector((state) => selectReviewById(state, commentId));
-  const user = useSelector((state) => selectUserById(state, comment.userId));
-  return (
-    <RestaurantCommentItem
-      user={user?.name}
-      text={comment.text}
-      rating={comment.rating}
-    />
-  );
+export const RestaurantCommentItemContainer = ({ text, rating, userId }) => {
+  // const comment = useSelector((state) => selectReviewById(state, commentId));
+  // const user = useSelector((state) => selectUserById(state, userId));
+
+  const { data: users, status } = useGetUsersQuery();
+  const user = users?.find((u) => u.id === userId);
+  return status === FULFILLED ? (
+    <RestaurantCommentItem user={user?.name} text={text} rating={rating} />
+  ) : null;
 };

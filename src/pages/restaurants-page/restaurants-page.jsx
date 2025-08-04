@@ -1,10 +1,10 @@
 import styles from "../../components/restaurant-tabs/restaurant-tabs.module.css";
-import { RestaurantTileContainer } from "../../components/restaurant-tile/restaurant-tile-container.jsx";
 import { Breadcrumbs } from "../../components/breadcrumbs/breadcrumbs.jsx";
 import { requestText } from "../../data/hooks/use-request.js";
 import { FULFILLED } from "../../data/entities/request/sliсe.js";
+import RestaurantTile from "../../components/restaurant-tile/restaurant-tile.jsx";
 
-export const RestaurantsPage = ({ requestStatus, restaurantsIds }) => {
+export const RestaurantsPage = ({ requestStatus, restaurants }) => {
   const breadcrumbs = [
     {
       text: "Рестораны"
@@ -18,8 +18,13 @@ export const RestaurantsPage = ({ requestStatus, restaurantsIds }) => {
       {requestStatus !== FULFILLED ?
         requestText(requestStatus) :
         (<div className={styles["tabs-triggers"]}>
-          {restaurantsIds.map((id) => (
-            <RestaurantTileContainer key={id} restaurantId={id} />
+          {restaurants.map((restaurant) => (
+            <RestaurantTile
+              key={restaurant.id}
+              id={restaurant.id}
+              name={restaurant.name}
+              img={restaurant.img}
+            />
           ))}
         </div>)
       }
