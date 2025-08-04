@@ -1,15 +1,15 @@
 import { RestaurantHomePage } from "./restaurant-home-page.jsx";
-import { useOutletContext } from "react-router";
+import { useParams } from "react-router";
+import { useGetRestaurantByIdQuery } from "../../data/services/api/api.js";
 
 export const RestaurantHomePageContainer = () => {
-  const { restaurant, restaurantRequestStatus } = useOutletContext();
+
+  const { restaurantId } = useParams();
+
+  const { data: restaurant, status: restaurantRequestStatus } = useGetRestaurantByIdQuery(restaurantId);
 
   return (
     <RestaurantHomePage restaurant={restaurant}
-                        name={restaurant.name}
-                        menuIds={restaurant.menu}
-                        reviewsIds={restaurant.reviews}
-                        restaurantId={restaurant.id}
                         restaurantRequestStatus={restaurantRequestStatus}
     />
   );

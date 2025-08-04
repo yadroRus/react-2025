@@ -1,21 +1,36 @@
 import { useLoginContext } from "../../components/login-context/hooks.js";
 import { RestaurantReviewsPage } from "./restaurant-reviews-page.jsx";
 import { useOutletContext } from "react-router";
-import { useRequest } from "../../data/hooks/use-request.js";
-import { getReviews } from "../../data/entities/reviews/get-reviews.js";
-import { getUsers } from "../../data/entities/users/get-users.js";
-import { FULFILLED, PENDING } from "../../data/entities/request/sliсe.js";
+import { useAddReviewMutation, useGetReviewsQuery } from "../../data/services/api/api.js";
 
 export const RestaurantReviewsPageContainer = () => {
   const { restaurant } = useOutletContext();
   const { user } = useLoginContext();
-  const requestStatusUser = useRequest(getUsers);
-  const requestStatusReviews = useRequest(getReviews, restaurant.id);
-  const requestStatus = requestStatusUser === FULFILLED && requestStatusReviews === FULFILLED ?
-    FULFILLED : PENDING;
+  // const requestStatusUser = useRequest(getUsers);
+  // const requestStatusReviews = useRequest(getReviews, restaurant.id);
+  // const requestStatus = requestStatusUser === FULFILLED && requestStatusReviews === FULFILLED ?
+  //   FULFILLED : PENDING;
+
+  const { data: restaurantReviews, status: requestStatus } = useGetReviewsQuery(restaurant.id);
+
+
+  const [addReview, isAddReviewLoading] = useAddReviewMutation();
+
+  const handelOnReview = (form) => {
+    addReview({
+      restaurantId: restaurant.id,
+      review: {
+        text: form.comment,
+        rating: form.rating,
+        userId: user.userId
+      }
+    });
+  };
 
   return <RestaurantReviewsPage user={user}
-                                reviewsIds={restaurant.reviews}
+                                reviews={restaurantReviews}
                                 restaurantId={restaurant.id}
-                                requestStatus={requestStatus} />;
+                                requestStatus={requestStatus}
+                                onReviewSubmit={handelOnReview}
+  />;
 };

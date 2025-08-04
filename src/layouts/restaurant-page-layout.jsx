@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { Outlet, useParams } from "react-router";
 import styles from "../components/restaurant-tabs/restaurant-tabs.module.css";
 import { RestaurantTabContainer } from "../components/restaurant-tab-container/restaurant-tab-container.jsx";
 import { Breadcrumbs } from "../components/breadcrumbs/breadcrumbs.jsx";
@@ -7,18 +7,20 @@ import { FULFILLED } from "../data/entities/request/sliсe.js";
 import { requestText } from "../data/hooks/use-request.js";
 
 export const RestaurantPageLayout = ({
-                                       restaurantsIds,
-                                       restaurant,
-                                       requestStatus,
-                                       restaurantRequestStatus
+                                       restaurants,
+                                      requestStatus
                                      }) => {
+  const { restaurantId } = useParams();
+
+  const currentRestaurant = restaurants?.find((restaurant) => restaurant.id === restaurantId);
+
   const breadcrumbs = [
     {
       text: "Рестораны",
       path: RESTAURANT_PAGE
     },
     {
-      text: restaurant?.name || "..."
+      text: currentRestaurant?.name || "..."
     }
   ];
 
@@ -31,14 +33,15 @@ export const RestaurantPageLayout = ({
         (
           <>
             <div className={styles["tabs-triggers"]}>
-              {restaurantsIds.map((id) => (
+              {restaurants?.map((restaurant) => (
                 <RestaurantTabContainer
-                  key={id}
-                  restaurantId={id}
+                  key={restaurant.id}
+                  restaurantId={restaurant.id}
+                  restaurantName={restaurant.name}
                 />
               ))}
             </div>
-            <Outlet context={{ restaurant, restaurantRequestStatus }} />
+            <Outlet context={{ currentRestaurant }} />
           </>
         )}
     </>

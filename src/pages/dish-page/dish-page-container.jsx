@@ -4,15 +4,14 @@ import { selectDishById } from "../../data/entities/dishes/slice.js";
 import { DishPage } from "./dish-page.jsx";
 import { useRequest } from "../../data/hooks/use-request.js";
 import { getDish } from "../../data/entities/dishes/get-dish.js";
+import { useGetDishByIdQuery } from "../../data/services/api/api.js";
 
 export const DishPageContainer = () => {
   const { dishId } = useParams();
-  const requestStatus = useRequest(getDish, dishId);
-  const dish = useSelector((state) => selectDishById(state, dishId));
+  // const requestStatus = useRequest(getDish, dishId);
+  // const dish = useSelector((state) => selectDishById(state, dishId));
 
-  if (!dish) {
-    return null;
-  }
+  const { data: dish, status: requestStatus } = useGetDishByIdQuery(dishId);
 
   return <DishPage
     dishId={dishId}

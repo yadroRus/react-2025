@@ -3,12 +3,18 @@ import { ReviewForm } from "../../components/review-form/review-form.jsx";
 import { FULFILLED } from "../../data/entities/request/sliсe.js";
 import { requestText } from "../../data/hooks/use-request.js";
 
-export const RestaurantReviewsPage = ({ user, reviewsIds, restaurantId, requestStatus }) => {
-  return requestStatus !== FULFILLED ?
+export const RestaurantReviewsPage = ({
+                                        user,
+                                        reviews,
+                                        restaurantId,
+                                        requestStatus,
+                                        onReviewSubmit
+                                      }) => {
+  return requestStatus !== FULFILLED && !reviews ?
     requestText(requestStatus) : (
       <>
-        <RestaurantComments commentsIds={reviewsIds} />
-        {user.name && <ReviewForm restaurantId={restaurantId} />}
+        <RestaurantComments reviews={reviews} userId={user.userId} />
+        {user.name && <ReviewForm restaurantId={restaurantId} onSubmit={onReviewSubmit}/>}
       </>
     );
 };
